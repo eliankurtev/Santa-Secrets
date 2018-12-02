@@ -1,16 +1,19 @@
-package com.nbu.secretsanta.secretsanta.service;
+package com.nbu.secretsanta.secretsanta.service.impl;
 
 import com.nbu.secretsanta.secretsanta.model.User;
 import com.nbu.secretsanta.secretsanta.repository.UserRepository;
+import com.nbu.secretsanta.secretsanta.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.Email;
+
 @Service
-public class DefaultUserService implements UserService {
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Autowired
-    public DefaultUserService(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -23,4 +26,11 @@ public class DefaultUserService implements UserService {
     public void save(User user) {
         userRepository.save(user);
     }
+
+    @Override
+    public User getUserByEmail(@Email String i) {
+        return userRepository.findByEmail(i);
+    }
+
+
 }

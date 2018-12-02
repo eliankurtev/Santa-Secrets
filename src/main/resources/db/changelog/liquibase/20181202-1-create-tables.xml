@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20181202-1-user-table" author="Rumyana Krumova">
+        <createTable tableName="user">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="e-mail" type="varchar(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+            <column name="is_admin" type="boolean" defaultValue="false"/>
+            <column name="is_registered" type="boolean" defaultValue="false"/>
+            <column name="gender" type="smallint"/>
+            <column name="giftee" type="bigint"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="user"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="20181202-2-user-hobbies" author="Rumyana Krumova">
+        <createTable tableName="user_hobby">
+            <column name="user_id" type="bigint"/>
+            <column name="hobby_id" type="bigint"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="user_hobby"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="20181202-3-hobby" author="Rumyana Krumova">
+        <createTable tableName="hobby">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="hobby"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="20181202-4-gift" author="Rumyana Krumova">
+        <createTable tableName="gift">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="price" type="double"/>
+            <column name="hobby_id" type="bigint"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="gift"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="20181202-5-wish" author="Rumyana Krumova">
+        <createTable tableName="wish">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="message" type="varchar(255)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="wish"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="20181202-6-admin-table" author="Rumyana Krumova">
+        <createTable tableName="admin">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="registration_end_date" type="DATETIME"/>
+            <column name="gifts_date" type="DATETIME"/>
+            <column name="price" type="double"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="admin"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="20181202-7-add-constraints" author="Rumyana Krumova">
+        <addForeignKeyConstraint constraintName="fk_user_id_hobby"
+                                 baseColumnNames="user_id"
+                                 baseTableName="user_hobby"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint constraintName="fk_hobby_id_user"
+                                 baseColumnNames="hobby_id"
+                                 baseTableName="user_hobby"
+                                 referencedTableName="hobby"
+                                 referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint constraintName="fk_gift_hobby"
+                                 baseColumnNames="hobby_id"
+                                 baseTableName="gift"
+                                 referencedTableName="hobby"
+                                 referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint constraintName="fk_user_giftee"
+                                 baseColumnNames="giftee"
+                                 baseTableName="user"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"
+        />
+    </changeSet>
+</databaseChangeLog>

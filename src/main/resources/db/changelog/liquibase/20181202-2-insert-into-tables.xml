@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20181202-1-insert-people" author="Rumyana Krumova">
+        <insert tableName="user">
+            <column name="name" value="Pesho"/>
+            <column name="e-mail" value="peshkata1@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Pesho"/>
+            <column name="e-mail" value="peshkata21@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Pesho"/>
+            <column name="e-mail" value="peshkata2@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Pesho"/>
+            <column name="e-mail" value="peshkata3@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Pesho"/>
+            <column name="e-mail" value="peshkata4@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Pesho"/>
+            <column name="e-mail" value="peshkata5@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Patka"/>
+            <column name="e-mail" value="patkata6@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Patka"/>
+            <column name="e-mail" value="patkata7@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Patka"/>
+            <column name="e-mail" value="patkata8@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Patka"/>
+            <column name="e-mail" value="patkata9@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Patka"/>
+            <column name="e-mail" value="patkata10@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Patka"/>
+            <column name="e-mail" value="patkata11@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Patka"/>
+            <column name="e-mail" value="patkata12@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Patka"/>
+            <column name="e-mail" value="patkata13@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+        <insert tableName="user">
+            <column name="name" value="Elian"/>
+            <column name="e-mail" value="elka14@gmail.com"/>
+            <column name="gender" value="0"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20181202-2-insert-hobbies" author="Rumyana Krumova">
+        <insert tableName="hobby">
+            <column name="name" value="Car Stuff"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Home Stuff"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Surprise"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Garden"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Hobby"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Cooking"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Sports"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Travel"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Fashion"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Symbolic"/>
+        </insert>
+        <insert tableName="hobby">
+            <column name="name" value="Other"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="20181202-3-insert-wishes" author="Rumyana Krumova">
+        <insert tableName="wish">
+            <column name="message" value="Christmas is about spending time with family and friends.
+             It’s about creating happy memories that will last a lifetime.
+             Merry Christmas to you and your family!"/>
+        </insert>
+        <insert tableName="wish">
+            <column name="message" value="May the closeness of friends, the comfort of home, and the unity of our nation,
+             renew your spirits this festive season.
+             Merry Christmas to your family."/>
+        </insert>
+        <insert tableName="wish">
+            <column name="message" value="‘Tis the season to wish one another joy and love and peace.
+            These are my wishes for you, Merry Christmas our dear friends, may you feel the love this special day."/>
+        </insert>
+        <insert tableName="wish">
+            <column name="message" value="May this festive season sparkle and shine,
+            may all of your wishes and dreams come true,
+            and may you feel this happiness all year round. Merry Christmas!"/>
+        </insert>
+        <insert tableName="wish">
+            <column name="message" value="You make the stars shine brighter and the winter days warmer just by being in my life.
+             Merry Christmas to my favourite person in the world."/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
