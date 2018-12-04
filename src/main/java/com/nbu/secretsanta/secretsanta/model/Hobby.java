@@ -11,7 +11,6 @@ import java.util.List;
 @Entity
 @Table(name = "hobby")
 public class Hobby {
-    @ManyToMany
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
