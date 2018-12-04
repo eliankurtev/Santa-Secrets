@@ -1,11 +1,11 @@
 package com.nbu.secretsanta.secretsanta.model;
 
-
 import lombok.Builder;
 import lombok.Data;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.LinkedList;
+import java.util.List;
 
 @Data
 @Builder
@@ -32,6 +32,15 @@ public class User {
 
     @Column(name = "gender")
     private Integer gender;
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_hobby",
+            joinColumns = { @JoinColumn(name = "id") },
+            inverseJoinColumns = { @JoinColumn(name = "id") }
+    )
+    List<Hobby> projects = new LinkedList<>();
 
 
 }

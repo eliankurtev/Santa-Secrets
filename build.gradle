@@ -1,3 +1,4 @@
+
 buildscript {
     ext {
         springBootVersion = '2.1.0.RELEASE'
@@ -46,7 +47,7 @@ dependencies {
 
 
 bootRun {
-    String activeProfile = System.properties['spring.profiles.active']
+    def activeProfile = System.properties['spring.profiles.active']
     systemProperty "spring.profiles.active", activeProfile
 }
 
@@ -56,9 +57,9 @@ liquibase {
     activities {
         main {
             changeLogFile changeLog
-            url 'jdbc:mysql://localhost:3306/secretsantadb?serverTimezone=UTC'
-            username 'root'
-            password 'root'
+            url 'jdbc:mysql://localhost:3306/sss?serverTimezone=UTC' 
+            username 'mysql'
+            password 'mysql'
         }
     }
 }
