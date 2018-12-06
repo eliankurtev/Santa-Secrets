@@ -1,4 +1,4 @@
-package com.nbu.secretsanta.secretsanta.service;
+package com.nbu.secretsanta.secretsanta.service.interfaces;
 
 
 import com.nbu.secretsanta.secretsanta.model.User;
