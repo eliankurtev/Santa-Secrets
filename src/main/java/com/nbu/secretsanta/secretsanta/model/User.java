@@ -42,5 +42,6 @@ public class User {
     )
     List<Hobby> projects = new LinkedList<>();
 
-
+    @Column(name="password")
+    private String password;
 }
