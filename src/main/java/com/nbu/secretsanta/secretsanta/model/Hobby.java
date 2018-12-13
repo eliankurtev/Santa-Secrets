@@ -18,7 +18,6 @@ public class Hobby {
 
     @Column(name = "name")
     private String name;
-// shalqlqlqlqllallalaaalalallalalalahahhahahaha
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                     CascadeType.PERSIST,
