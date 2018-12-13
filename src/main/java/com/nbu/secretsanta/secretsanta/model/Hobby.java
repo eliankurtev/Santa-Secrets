@@ -3,8 +3,8 @@ package com.nbu.secretsanta.secretsanta.model;
 import lombok.Builder;
 import lombok.Data;
 import javax.persistence.*;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Builder
@@ -19,7 +19,13 @@ public class Hobby {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "user")
-    private List<User> employees = new LinkedList<>();
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            },
+            mappedBy = "hobbies")
+    private Set<User> employees = new HashSet<>();
+
 
 }
