@@ -57,9 +57,9 @@ liquibase {
     activities {
         main {
             changeLogFile changeLog
-            url 'jdbc:mysql://localhost:3306/sss?serverTimezone=UTC' 
-            username 'mysql'
-            password 'mysql'
+            url 'jdbc:mysql://localhost:3306/secret_santa?serverTimezone=UTC'
+            username 'Elian'
+            password '28642864'
         }
     }
 }
