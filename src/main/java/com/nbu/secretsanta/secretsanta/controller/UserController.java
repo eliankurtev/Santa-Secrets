@@ -10,6 +10,6 @@ public class UserController {
     @GetMapping("/user")
     public String greeting(Model model) {
         model.addAttribute("message", "patka");
-        return "user";
+        return "ScreenHome";
     }
 }
