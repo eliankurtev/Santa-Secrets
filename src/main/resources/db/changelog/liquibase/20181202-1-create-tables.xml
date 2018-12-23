@@ -10,11 +10,13 @@
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="varchar(255)"/>
-            <column name="e-mail" type="varchar(255)">
+            <column name="email" type="varchar(255)">
                 <constraints unique="true" nullable="false"/>
             </column>
+            <column name="password" type="varchar(255)"/>
             <column name="is_admin" type="boolean" defaultValue="false"/>
             <column name="is_registered" type="boolean" defaultValue="false"/>
+            <column name="is_enabled" type="boolean" defaultValue="true"/>
             <column name="gender" type="smallint"/>
             <column name="giftee" type="bigint"/>
         </createTable>
@@ -79,6 +81,26 @@
             <dropTable tableName="admin"/>
         </rollback>
     </changeSet>
+    <changeSet id="20181202-7-role" author="Rumyana Krumova">
+        <createTable tableName="role">
+            <column name="id" type="bigint">
+            <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="role"/>
+        </rollback>
+    </changeSet>
+    <changeSet id="20181202-8-user-role" author="Rumyana Krumova">
+        <createTable tableName="user_role">
+            <column name="user_id" type="bigint"/>
+            <column name="role_id" type="bigint"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="user_role"/>
+        </rollback>
+    </changeSet>
     <changeSet id="20181202-7-add-constraints" author="Rumyana Krumova">
         <addForeignKeyConstraint constraintName="fk_user_id_hobby"
                                  baseColumnNames="user_id"
@@ -102,6 +124,18 @@
                                  baseColumnNames="giftee"
                                  baseTableName="user"
                                  referencedTableName="user"
+                                 referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint constraintName="fk_user_id_role"
+                                 baseColumnNames="user_id"
+                                 baseTableName="user_role"
+                                 referencedTableName="user"
+                                 referencedColumnNames="id"
+        />
+        <addForeignKeyConstraint constraintName="fk_role_id_user"
+                                 baseColumnNames="role_id"
+                                 baseTableName="user_role"
+                                 referencedTableName="role"
                                  referencedColumnNames="id"
         />
     </changeSet>

@@ -1,17 +1,20 @@
 package com.nbu.secretsanta.secretsanta.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 
 @Data
 @Builder
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "user")
 public class User {
     @Id
@@ -23,7 +26,7 @@ public class User {
     private String name;
 
     @Email
-    @Column(name = "e-mail")
+    @Column(name = "email")
     private String email;
 
     @Column(name = "is_admin")
@@ -36,7 +39,7 @@ public class User {
     private Integer gender;
 
     @Column(name = "password")
-    private Integer password;
+    private String password;
 
 
     @ManyToMany(fetch = FetchType.LAZY,
@@ -45,8 +48,8 @@ public class User {
                     CascadeType.MERGE
             })
     @JoinTable(name = "user_hobby",
-            joinColumns = { @JoinColumn(name = "user_id") },
-            inverseJoinColumns = { @JoinColumn(name = "hobby_id") })
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "hobby_id")})
     private Set<Hobby> hobbies = new HashSet<>();
 
 
