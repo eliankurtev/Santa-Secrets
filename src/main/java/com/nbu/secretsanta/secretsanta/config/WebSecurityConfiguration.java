@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.sql.DataSource;
 
@@ -31,6 +32,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     private final String USERS_QUERY = "select email, password, is_enabled from user where email=? ";
     private final String ROLES_QUERY = "SELECT user.email as username, role.name as role \n" +
             "        FROM user \n" +
@@ -40,8 +44,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-       auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
-		auth.inMemoryAuthentication().withUser("admin").password("password").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("user").password(passwordEncoder.encode("password")).roles("USER");
+        auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder.encode("password")).roles("ADMIN");
+
         ;
     }
 
@@ -54,8 +59,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .passwordParameter("loginPassword")
                 .usernameParameter("loginUsername")
-                .successForwardUrl("/admin")
-                .defaultSuccessUrl("/admin", true)
+                .successForwardUrl("/fail")
+                .defaultSuccessUrl("/fail", true)
                 .permitAll()
                 .and()
                 .authorizeRequests()
@@ -68,9 +73,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                         "/other/**").permitAll()
                 .antMatchers("/login").authenticated()
                 .antMatchers("/**").authenticated()
+                .antMatchers("/admin").hasAnyRole("ADMIN")
+                .antMatchers("/user").hasAnyRole("USER")
                 .anyRequest().authenticated()
                 .and()
-                .userDetailsService(this.userDetailsService);
+                .userDetailsService(this.userDetailsService)
+        ;
     }
 
 //    @Bean

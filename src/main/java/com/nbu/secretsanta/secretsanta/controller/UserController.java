@@ -8,12 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserController {
 
     @GetMapping("/login")
-    public String login(User user) {
+    public String login() {
         return "ScreenHome";
     }
 
     @GetMapping("/admin")
-    public String admin(User user) {
+    public String admin() {
         return "ScreenAdmin";
+    }
+
+    @GetMapping("/user")
+    public String userR() {
+        return "ScreenUserR";
     }
 }
