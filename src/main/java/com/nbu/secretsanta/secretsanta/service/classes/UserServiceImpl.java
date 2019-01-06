@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.constraints.Email;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -32,5 +34,35 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByEmail(i);
     }
 
+    @Override
+    public void setGifteeToAll() {
+        List<User> users = userRepository.findAll();
+        List<User> usersGiftees = userRepository.findAll();
+        List<Long> userIds = usersGiftees.stream().map(User::getUserId).collect(Collectors.toList());
+        int size = users.size();
+        for(User u : users){
+           User giftee = getGifteeForOne(u, usersGiftees,userIds);
+           userIds.remove(giftee.getUserId());
+           usersGiftees.remove(giftee);
+        }
+    }
 
+    private User getGifteeForOne(User user, List<User> users, List<Long> ids) {
+        Long randomId = getRandomId(ids);
+        User giftee = userRepository.findByUserId(randomId);
+
+        while (giftee == null || !users.contains(giftee) || Objects.equals(user.getUserId(), randomId)){
+            randomId = getRandomId(ids);
+            giftee = userRepository.findByUserId(randomId);
+        }
+
+            user.setGiftee(giftee);
+            userRepository.save(user);
+        return giftee;
+    }
+
+    private Long getRandomId(List<Long> ids) {
+        Collections.shuffle(ids);
+        return ids.get(0);
+    }
 }
