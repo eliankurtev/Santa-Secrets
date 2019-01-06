@@ -1,78 +1,93 @@
 <!doctype html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="../images/tab_icon.png">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Righteous&amp;subset=latin-ext" rel="stylesheet">
 
     <link rel="stylesheet" href="/css/ScreenHome.css">
     <title>Secret Santa</title>
 </head>
 <body class="container-fluid">
-    <!-- FIRST ROW -->
+<!-- FIRST ROW -->
 <div id="topOfIndex" class="row">
     <!--TODO: make the real paths-->
     <div class="col-sm-12 d-flex justify-content-center">
-    <figure>
-    <img src="../images/indexPage/topOfIndex.png" class="img-fluid animateTopSideImg"  alt="top desk">
-    </figure>
+        <figure>
+            <img src="../images/indexPage/topOfIndex.png" class="img-fluid animateTopSideImg" alt="top desk">
+        </figure>
     </div>
     <!-- CLOSING FIRST ROW -->
 </div>
 <!-- SECOND ROW -->
 <div class="row">
 
-<div id="formSection" class="col-sm-12 col-md-6 mt-3">
-        
-        <form id="loginForm" action="" method="POST">
-        <h2>Login</h2>
-        <div class="formInput">
-            <div class="labels pl-5 pt-2">
-            <label for="loginUsername">Username</label>
-        </div>
-        <div class="textField media">
-            <input id="loginUsername" class="align-self-center" type="text" name="loginUsername" placeholder="ekurtev" size="22" maxlength="30" value="" required>
-        </div>
-        </div>
-        
-        <div class="formInput">
-        <div class="labels pl-5 pt-2">
-            <label for="loginPassword">Password</label>
-       </div>
-       <div class="textField media">
-            <input id="loginPassword" class="align-self-center" type="password" name="loginPassword" placeholder="your password" size="15" maxlength="15" value="" required>
-        </div>
-        </div>
+    <div id="formSection" class="col-sm-12 col-md-6 mt-3">
 
-        <div class="mt-4 mb-4 mr-5 d-flex justify-content-left">
-            <button type="submit" name="loginButton" class="logginButton">Log In</button>
-        </div>
-        
-        
-        
+        <form th:action="@{/login}" id="loginForm" action="" method="POST">
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">
+                    Invalid username and password.
+                </div>
+            </div>
+            <div th:if="${param.logout}">
+                <div class="alert alert-info">
+                    You have been logged out.
+                </div>
+            </div>
+            <h2>Login</h2>
+            <div class="formInput">
+                <div class="labels pl-5 pt-2">
+                    <label for="loginUsername">Username</label>
+                </div>
+                <div class="textField media">
+                    <input id="loginUsername" class="align-self-center" type="text" name="loginUsername"
+                           placeholder="ekurtev" size="22" maxlength="30" value="" required>
+                </div>
+            </div>
+
+            <div class="formInput">
+                <div class="labels pl-5 pt-2">
+                    <label for="loginPassword">Password</label>
+                </div>
+                <div class="textField media">
+                    <input id="loginPassword" class="align-self-center" type="password" name="loginPassword"
+                           placeholder="your password" size="15" maxlength="15" value="" required>
+                </div>
+            </div>
+
+            <div class="mt-4 mb-4 mr-5 d-flex justify-content-left">
+                <button type="submit" name="loginButton" class="logginButton" >Log In</button>
+            </div>
         </form>
-          </div>
+    </div>
 
 
+    <div id="wishesSection" class="col-12 col-md-6 mt-3 mb-4">
+        <h2>Christmas wish</h2>
 
-  <div id="wishesSection" class="col-12 col-md-6 mt-3 mb-4">
-    <h2>Christmas wish</h2>
-
-  </div>
+    </div>
 </div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 <script type="text/javascript" src="./js/ScreenHome.js"></script>
 </body>
 </html>
