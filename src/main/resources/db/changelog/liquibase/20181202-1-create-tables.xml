@@ -4,8 +4,8 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
-    <changeSet id="20181202-1-user-table" author="Rumyana Krumova">
-        <createTable tableName="user">
+    <changeSet id="20181202-1-users-table" author="Rumyana Krumova">
+        <createTable tableName="users">
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true"/>
             </column>
@@ -21,16 +21,16 @@
             <column name="giftee" type="bigint"/>
         </createTable>
         <rollback>
-            <dropTable tableName="user"/>
+            <dropTable tableName="users"/>
         </rollback>
     </changeSet>
-    <changeSet id="20181202-2-user-hobbies" author="Rumyana Krumova">
-        <createTable tableName="user_hobby">
-            <column name="user_id" type="bigint"/>
+    <changeSet id="20181202-2-users-hobbies" author="Rumyana Krumova">
+        <createTable tableName="users_hobby">
+            <column name="users_id" type="bigint"/>
             <column name="hobby_id" type="bigint"/>
         </createTable>
         <rollback>
-            <dropTable tableName="user_hobby"/>
+            <dropTable tableName="users_hobby"/>
         </rollback>
     </changeSet>
     <changeSet id="20181202-3-hobby" author="Rumyana Krumova">
@@ -92,25 +92,25 @@
             <dropTable tableName="role"/>
         </rollback>
     </changeSet>
-    <changeSet id="20181202-8-user-role" author="Rumyana Krumova">
-        <createTable tableName="user_role">
-            <column name="user_id" type="bigint"/>
+    <changeSet id="20181202-8-users-role" author="Rumyana Krumova">
+        <createTable tableName="users_role">
+            <column name="users_id" type="bigint"/>
             <column name="role_id" type="bigint"/>
         </createTable>
         <rollback>
-            <dropTable tableName="user_role"/>
+            <dropTable tableName="users_role"/>
         </rollback>
     </changeSet>
     <changeSet id="20181202-7-add-constraints" author="Rumyana Krumova">
-        <addForeignKeyConstraint constraintName="fk_user_id_hobby"
-                                 baseColumnNames="user_id"
-                                 baseTableName="user_hobby"
-                                 referencedTableName="user"
+        <addForeignKeyConstraint constraintName="fk_users_id_hobby"
+                                 baseColumnNames="users_id"
+                                 baseTableName="users_hobby"
+                                 referencedTableName="users"
                                  referencedColumnNames="id"
         />
-        <addForeignKeyConstraint constraintName="fk_hobby_id_user"
+        <addForeignKeyConstraint constraintName="fk_hobby_id_users"
                                  baseColumnNames="hobby_id"
-                                 baseTableName="user_hobby"
+                                 baseTableName="users_hobby"
                                  referencedTableName="hobby"
                                  referencedColumnNames="id"
         />
@@ -120,21 +120,21 @@
                                  referencedTableName="hobby"
                                  referencedColumnNames="id"
         />
-        <addForeignKeyConstraint constraintName="fk_user_giftee"
+        <addForeignKeyConstraint constraintName="fk_users_giftee"
                                  baseColumnNames="giftee"
-                                 baseTableName="user"
-                                 referencedTableName="user"
+                                 baseTableName="users"
+                                 referencedTableName="users"
                                  referencedColumnNames="id"
         />
-        <addForeignKeyConstraint constraintName="fk_user_id_role"
-                                 baseColumnNames="user_id"
-                                 baseTableName="user_role"
-                                 referencedTableName="user"
+        <addForeignKeyConstraint constraintName="fk_users_id_role"
+                                 baseColumnNames="users_id"
+                                 baseTableName="users_role"
+                                 referencedTableName="users"
                                  referencedColumnNames="id"
         />
-        <addForeignKeyConstraint constraintName="fk_role_id_user"
+        <addForeignKeyConstraint constraintName="fk_role_id_users"
                                  baseColumnNames="role_id"
-                                 baseTableName="user_role"
+                                 baseTableName="users_role"
                                  referencedTableName="role"
                                  referencedColumnNames="id"
         />

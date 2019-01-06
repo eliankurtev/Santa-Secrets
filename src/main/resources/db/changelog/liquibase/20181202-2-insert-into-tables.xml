@@ -5,95 +5,96 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
     <changeSet id="20181202-1-insert-people" author="Rumyana Krumova">
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Pesho"/>
             <column name="email" value="peshkata1@gmail.com"/>
             <column name="gender" value="0"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Pesho"/>
             <column name="email" value="peshkata21@gmail.com"/>
             <column name="gender" value="0"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Pesho"/>
             <column name="email" value="peshkata2@gmail.com"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
             <column name="gender" value="0"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Pesho"/>
             <column name="email" value="peshkata3@gmail.com"/>
             <column name="gender" value="0"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
-        </insert>
-        <insert tableName="user">
+            <column name="password" value="users"/>
+            <column name="is_admin" valueBoolean="true" />
+         </insert>
+        <insert tableName="users">
             <column name="name" value="Pesho"/>
             <column name="email" value="peshkata4@gmail.com"/>
             <column name="gender" value="0"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Pesho"/>
             <column name="email" value="peshkata5@gmail.com"/>
             <column name="gender" value="0"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Patka"/>
             <column name="email" value="patkata6@gmail.com"/>
             <column name="gender" value="1"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Patka"/>
             <column name="email" value="patkata7@gmail.com"/>
             <column name="gender" value="1"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Patka"/>
             <column name="email" value="patkata8@gmail.com"/>
             <column name="gender" value="1"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Patka"/>
             <column name="email" value="patkata9@gmail.com"/>
             <column name="gender" value="1"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Patka"/>
             <column name="email" value="patkata10@gmail.com"/>
             <column name="gender" value="1"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Patka"/>
             <column name="email" value="patkata11@gmail.com"/>
             <column name="gender" value="1"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Patka"/>
             <column name="email" value="patkata12@gmail.com"/>
             <column name="gender" value="1"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Patka"/>
             <column name="email" value="patkata13@gmail.com"/>
             <column name="gender" value="1"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="name" value="Elian"/>
             <column name="email" value="elka14@gmail.com"/>
             <column name="gender" value="0"/>
-            <column name="password" value="$2a$04$O/rLkxyJRRaBTFjdUqVML.PfuuIEm2nxiR1GQgvBD5zAW2h146WLe"/>
+            <column name="password" value="users"/>
         </insert>
     </changeSet>
 
@@ -163,7 +164,7 @@
         </insert>
         <insert tableName="role">
             <column name="id" value="2"/>
-            <column name="name" value="ROLE_USER"/>
+            <column name="name" value="ROLE_users"/>
         </insert>
     </changeSet>
 

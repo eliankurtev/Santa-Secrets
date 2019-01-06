@@ -1,18 +1,21 @@
 package com.nbu.secretsanta.secretsanta.config;
 
+import com.nbu.secretsanta.secretsanta.security.AuthSuccessHandler;
+import com.nbu.secretsanta.secretsanta.security.CustomAuthenticationProvider;
+import com.nbu.secretsanta.secretsanta.security.UserDetailsServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import javax.sql.DataSource;
 
 @Slf4j
 @Configuration
@@ -21,66 +24,64 @@ import javax.sql.DataSource;
 @Profile("dev")
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    private final UserDetailsService userDetailsService;
-
     @Autowired
-    public WebSecurityConfiguration(UserDetailsService userDetailsService) {
-        this.userDetailsService = userDetailsService;
-    }
-
-
-    @Autowired
-    private DataSource dataSource;
-
+    AuthSuccessHandler authSuccessHandler;
     @Autowired
     private PasswordEncoder passwordEncoder;
-
-    private final String USERS_QUERY = "select email, password, is_enabled from user where email=? ";
-    private final String ROLES_QUERY = "SELECT user.email as username, role.name as role \n" +
-            "        FROM user \n" +
-            "        INNER JOIN user_role ON user.id = user_role.user_id \n" +
-            "        INNER JOIN role ON user_role.role_id = role.id\n" +
-            "        WHERE user.email = ?  ";
+    @Autowired
+    private CustomAuthenticationProvider customAuthenticationProvider;
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user").password(passwordEncoder.encode("password")).roles("USER");
-        auth.inMemoryAuthentication().withUser("admin").password(passwordEncoder.encode("password")).roles("ADMIN");
-
-        ;
+        auth
+                .userDetailsService(userDetailsService)
+                .passwordEncoder(passwordEncoder)
+                .and()
+                .authenticationProvider(customAuthenticationProvider);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf()
-                .disable()
-                .formLogin()
-                .loginPage("/login")
-                .passwordParameter("loginPassword")
-                .usernameParameter("loginUsername")
-                .successForwardUrl("/fail")
-                .defaultSuccessUrl("/fail", true)
-                .permitAll()
-                .and()
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers(
-                        "/",
-                        "/js/**",
-                        "/css/**",
-                        "/images/**",
-                        "/node_modules/**",
-                        "/other/**").permitAll()
-                .antMatchers("/login").authenticated()
-                .antMatchers("/**").authenticated()
-                .antMatchers("/admin").hasAnyRole("ADMIN")
-                .antMatchers("/user").hasAnyRole("USER")
+                .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
+                .antMatchers("/user/**").hasAnyAuthority("ROLE_USER")
                 .anyRequest().authenticated()
                 .and()
-                .userDetailsService(this.userDetailsService)
-        ;
+                .formLogin()
+                .successHandler(authSuccessHandler)
+                .loginPage("/login")
+                .permitAll()
+                .passwordParameter("loginPassword")
+                .usernameParameter("loginUsername")
+                .and()
+                .exceptionHandling()
+        .and()
+        .rememberMe()
+        .key("uniqueAndSecret")
+        .tokenValiditySeconds(86700);
+//        .and()
+//        .anonymous().disable();
+//                .accessDeniedPage("/error/403");
     }
 
+
+    @Override
+    public void configure(WebSecurity web) {
+        web
+                .ignoring()
+                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
+        authenticationProvider.setUserDetailsService(userDetailsService());
+        authenticationProvider.setPasswordEncoder(passwordEncoder);
+        return authenticationProvider;
+    }
 //    @Bean
 //    public PersistentTokenRepository persistentTokenRepository() {
 //        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();

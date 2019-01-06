@@ -1,12 +1,14 @@
-package com.nbu.secretsanta.secretsanta.config;
+package com.nbu.secretsanta.secretsanta.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Component
 public class AuthSuccessHandler   extends SavedRequestAwareAuthenticationSuccessHandler {
     @Override
     protected String determineTargetUrl(HttpServletRequest request, HttpServletResponse response) {
@@ -20,6 +22,7 @@ public class AuthSuccessHandler   extends SavedRequestAwareAuthenticationSuccess
         } else if(role.contains("USER")) {
             targetUrl = "/user";
         }
+        logger.info(targetUrl);
         return targetUrl;
     }
 }

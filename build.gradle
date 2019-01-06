@@ -42,6 +42,7 @@ dependencies {
     runtimeOnly('mysql:mysql-connector-java')
     compileOnly('org.projectlombok:lombok')
     compile("org.liquibase:liquibase-core")
+    compile("org.springframework:spring-jdbc")
     compile ('org.springframework.boot:spring-boot-starter-security')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
