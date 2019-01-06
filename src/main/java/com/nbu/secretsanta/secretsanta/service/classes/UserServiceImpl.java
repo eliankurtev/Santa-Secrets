@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
         return count;
     }
 
-    @Override
+    @Override // Registered Users Count
     public int ruCount() {
         int count = 0;
         List<User> users = new ArrayList<>();
@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<String> ruNamesList() { // ruNamesList -> Registered Users Names List/
         List<String> userNames = new ArrayList<>();
-        List<User> users = new ArrayList<>();
+        List<User> users;
         users = userRepository.findAll();
         String temp;
         for (User user : users) {
