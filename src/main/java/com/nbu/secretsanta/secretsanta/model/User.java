@@ -53,5 +53,7 @@ public class User {
             inverseJoinColumns = {@JoinColumn(name = "hobby_id")})
     private Set<Hobby> hobbies = new HashSet<>();
 
-
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "giftee")
+    private User giftee;
 }
