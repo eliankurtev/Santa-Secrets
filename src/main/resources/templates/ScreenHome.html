@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -29,14 +30,14 @@
 
 <div id="formSection" class="col-sm-12 col-md-6 mt-3">
         
-        <form id="loginForm" action="" method="POST">
+        <form id="loginForm" th:action="@{/login}" method="POST">
         <h2>Login</h2>
         <div class="formInput">
             <div class="labels pl-5 pt-2">
             <label for="loginUsername">Username</label>
         </div>
         <div class="textField media">
-            <input id="loginUsername" class="align-self-center" type="text" name="loginUsername" placeholder="ekurtev" size="22" maxlength="30" value="" required>
+            <input id="loginUsername" class="align-self-center" type="text" name="loginUsername" placeholder="ekurtev" size="22" maxlength="30" value="" autofocus required>
         </div>
         </div>
         
