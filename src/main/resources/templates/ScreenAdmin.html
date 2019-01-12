@@ -4,10 +4,13 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="../static/images/tab_icon.png">
+    <link rel="icon" href="../images/tab_icon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/ScreenAdmin.css">
+    <link rel="stylesheet" href="/css/ScreenAdmin.css">
+        <link href="https://fonts.googleapis.com/css?family=Righteous&amp;subset=latin-ext" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap-select/dist/css/bootstrap-select.css">
     <title>Secret Santa - Admin</title>
   </head>
   <body class="container-fluid">
@@ -16,15 +19,178 @@
       <!--TODO: make the real paths-->
       <div class="col-sm-12 d-flex justify-content-center">
         <figure>
-          <img src="../static/images/adminPage/topOfAdmin.png" class="img-fluid animateTopSideImg"  alt="top desk">
+          <img src="../images/adminPage/topOfAdmin.png" class="img-fluid animateTopSideImg"  alt="top desk">
         </figure>
       </div>
       <!-- CLOSING FIRST ROW -->
     </div>
+    <!-- SECOND ROW -->
+    <div id="secondRow" class="row">
+      <form method="GET" action="" class="col-12">
+        <div class="row">
+          <div id="registrationTimer" class="col-sm-12 col-md-6 col-lg-3 d-flex align-content-center flex-wrap">
+            <div class="row">
+              <div class="col-12">
+                <h3>Set registration timer</h3>
+              </div>
+              <div class="col-12">
+                <select class="selectpicker selectTransparent" title="Date" data-live-search="true" data-size="5" required>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option>27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+            <select class="selectpicker" title="Month" data-live-search="true" data-size="5" required>
+              <option>Janaury</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>November</option>
+              <option>December</option>
+            </select>
+            <select class="selectpicker" title="Year" data-live-search="true" data-size="5" required>
+              <option>2010</option>
+              <option>2011</option>
+              <option>2012</option>
+              <option>2013</option>
+              <option>2014</option>
+              <option>2015</option>
+              <option>2016</option>
+              <option>2017</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+            </select>
+
+              </div>
+            
+            </div>
+            
+           
+          </div>
+          <div id="giftTimer" class="col-sm-12 col-md-6 col-lg-3 d-flex align-content-center flex-wrap">
+            <h3>Set gift timer</h3>
+            <select class="selectpicker" title="Date" data-live-search="true" data-size="5" required>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18</option>
+              <option>19</option>
+              <option>20</option>
+              <option>21</option>
+              <option>22</option>
+              <option>23</option>
+              <option>24</option>
+              <option>25</option>
+              <option>26</option>
+              <option>27</option>
+              <option>28</option>
+              <option>29</option>
+              <option>30</option>
+              <option>31</option>
+            </select>
+
+            <select class="selectpicker" title="Month" data-live-search="true" data-size="5" required>
+              <option>Janaury</option>
+              <option>February</option>
+              <option>March</option>
+              <option>April</option>
+              <option>May</option>
+              <option>June</option>
+              <option>July</option>
+              <option>August</option>
+              <option>September</option>
+              <option>October</option>
+              <option>November</option>
+              <option>December</option>
+            </select>
+            <select class="selectpicker" title="Year" data-live-search="true" data-size="5">
+              <option>2010</option>
+              <option>2011</option>
+              <option>2012</option>
+              <option>2013</option>
+              <option>2014</option>
+              <option>2015</option>
+              <option>2016</option>
+              <option>2017</option>
+              <option>2018</option>
+              <option>2019</option>
+              <option>2020</option>
+            </select>
+
+            <input type="number" name="" min="1" max="23" required>
+            <input type="number" name="" min="1" max="59" required>
+
+          </div>
+          <div id="maxGiftPrice" class="col-sm-12 col-md-6 col-lg-3 d-flex align-content-center flex-wrap" required>
+            <h3>Set max gift price</h3>
+            <input type="number" name="" min="1" max="100" required>
+            $
+          </div>
+          <button id="submitButton" class="col-sm-6 col-lg-3">Submit</button>
+        </div>
+      </form>
+    <!-- CLOSING SECOND ROW -->
+    </div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="./node_modules/bootstrap-select/js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="./js/ScreenAdmin.js"></script>
+
+
+
+   
   </body>
 </html>
