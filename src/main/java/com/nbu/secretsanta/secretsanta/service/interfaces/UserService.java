@@ -9,4 +9,5 @@ public interface UserService {
     boolean validate(User user);
     void save(User user);
     User getUserByEmail(@Email String i);
+    void setGifteeToAll();
 }

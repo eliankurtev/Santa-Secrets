@@ -3,5 +3,4 @@ databaseChangeLog:
     file: db/changelog/liquibase/20181202-1-create-tables.xml
 - include:
     file: db/changelog/liquibase/20181202-2-insert-into-tables.xml
-- include:
-    file: db/changelog/liquibase/20181211-1-add-password.xml
+
