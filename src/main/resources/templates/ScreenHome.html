@@ -5,17 +5,18 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 
 <head>
-    <!-- Required meta tags -->
+    <!-- REQUIRED META TAGS -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="../images/tab_icon.png">
     <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
+    <!--PRETTY CHECKBOX-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+    <!--MAIN FONT-->
     <link href="https://fonts.googleapis.com/css?family=Righteous&amp;subset=latin-ext" rel="stylesheet">
-
+    <!--CSS FOR THIS PAGE-->
     <link rel="stylesheet" href="/css/ScreenHome.css">
     <title>Secret Santa</title>
 </head>
@@ -67,7 +68,14 @@
                            placeholder="your password" size="15" maxlength="15" value="" required>
                 </div>
             </div>
-
+            <div class="pl-5 mt-2">
+            <div class="pretty p-default p-curve p-fill">
+                <input type="checkbox" />
+                <div class="state p-success">
+                    <label>Remember me</label>
+                </div>
+            </div>
+            </div>
             <div class="mt-4 mb-4 mr-5 d-flex justify-content-left">
                 <button type="submit" name="loginButton" class="logginButton" >Log In</button>
             </div>
