@@ -1,0 +1,30 @@
+body {
+     background: url("../../static/images/nrUserPage/background.jpg") no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+#back, #front {
+    opacity: 1;
+    position: absolute;
+    top:0;
+    right:0;
+    left:0;
+}
+.btn-primary-outline {
+  background-color: transparent;
+}
+
+.backBtn {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 18px;
+}
+
+#backBtnImg {
+	max-height: 200px;
+	max-width: 200px;
+}
