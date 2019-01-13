@@ -12,7 +12,7 @@ body{
 }
 
 #registrationTimer, #giftTimer, #maxGiftPrice{
-	  width: 100%;
+    width: 100%;
     min-height: 300px;
     background: url("../images/adminPage/table.png"); 
     background-repeat: no-repeat; 
