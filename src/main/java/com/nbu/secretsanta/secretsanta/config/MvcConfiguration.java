@@ -11,8 +11,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("ScreenHome");
-        registry.addViewController("/admin").setViewName("ScreenAdmin");
+        registry.addViewController("/login").setViewName("ScreenHome.html");
+        registry.addViewController("/admin").setViewName("ScreenAdmin.html");
         registry.addViewController("/fail").setViewName("fail");
 
     }
