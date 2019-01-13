@@ -2,11 +2,10 @@ package com.nbu.secretsanta.secretsanta.model;
 
 import lombok.Builder;
 import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -49,5 +48,12 @@ public class User {
             inverseJoinColumns = { @JoinColumn(name = "hobby_id") })
     private Set<Hobby> hobbies = new HashSet<>();
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "giftee")
+    private User giftee;
 
+    @Override
+    public String toString(){
+        return "";
+    }
 }
