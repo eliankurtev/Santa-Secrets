@@ -56,4 +56,9 @@ public class User {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "giftee")
     private User giftee;
+
+    @Override
+    public String toString(){
+        return "";
+    }
 }

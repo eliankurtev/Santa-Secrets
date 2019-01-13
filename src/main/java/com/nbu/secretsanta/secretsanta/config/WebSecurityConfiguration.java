@@ -62,7 +62,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         .and()
         .rememberMe()
         .key("uniqueAndSecret")
-        .tokenValiditySeconds(86700);
+        .tokenValiditySeconds(86700)
+        .rememberMeParameter("remember-me");
 //        .and()
 //        .anonymous().disable();
 //                .accessDeniedPage("/error/403");

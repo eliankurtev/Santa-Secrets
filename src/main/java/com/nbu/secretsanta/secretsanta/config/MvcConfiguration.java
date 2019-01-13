@@ -13,8 +13,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("ScreenHome");
         registry.addViewController("/admin").setViewName("ScreenAdmin");
-        registry.addViewController("/fail").setViewName("fail");
-
+        registry.addViewController("/user").setViewName("ScreenUserNR");
     }
 
     @Bean
