@@ -1,9 +1,6 @@
 package com.nbu.secretsanta.secretsanta.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -17,6 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Data
 @Table(name = "users")
+@EqualsAndHashCode
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,13 +41,12 @@ public class User {
     private String password;
 
 
-    @ManyToMany(fetch = FetchType.EAGER,
+    @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
+                    CascadeType.ALL,
             })
-    @JoinTable(name = "user_hobby",
-            joinColumns = {@JoinColumn(name = "user_id")},
+    @JoinTable(name = "users_hobby",
+            joinColumns = {@JoinColumn(name = "users_id")},
             inverseJoinColumns = {@JoinColumn(name = "hobby_id")})
     private Set<Hobby> hobbies = new HashSet<>();
 
@@ -58,7 +55,12 @@ public class User {
     private User giftee;
 
     @Override
-    public String toString(){
+    public String toString() {
         return "";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o == this;
     }
 }

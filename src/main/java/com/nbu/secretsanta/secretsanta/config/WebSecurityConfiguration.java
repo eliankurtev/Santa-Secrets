@@ -47,6 +47,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
+                .antMatchers("/admin/start_date/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/user/**").hasAnyAuthority("ROLE_USER")
                 .antMatchers("/gift").permitAll()
                 .anyRequest().authenticated()
@@ -59,16 +60,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usernameParameter("loginUsername")
                 .and()
                 .exceptionHandling()
-        .and()
-        .rememberMe()
-        .key("uniqueAndSecret")
-        .tokenValiditySeconds(86700)
-        .rememberMeParameter("remember-me");
-//        .and()
-//        .anonymous().disable();
-//                .accessDeniedPage("/error/403");
+                .and()
+                .rememberMe()
+                .key("uniqueAndSecret")
+                .tokenValiditySeconds(86700)
+                .rememberMeParameter("remember-me");
     }
-
 
     @Override
     public void configure(WebSecurity web) {
