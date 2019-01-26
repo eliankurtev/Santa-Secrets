@@ -59,13 +59,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usernameParameter("loginUsername")
                 .and()
                 .exceptionHandling()
-        .and()
-        .rememberMe()
-        .key("uniqueAndSecret")
-        .tokenValiditySeconds(86700);
-//        .and()
-//        .anonymous().disable();
-//                .accessDeniedPage("/error/403");
+                .and()
+                .rememberMe()
+                .key("uniqueAndSecret")
+                .tokenValiditySeconds(86700)
+                .rememberMeParameter("remember-me");
     }
 
 
@@ -83,11 +81,5 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         authenticationProvider.setPasswordEncoder(passwordEncoder);
         return authenticationProvider;
     }
-//    @Bean
-//    public PersistentTokenRepository persistentTokenRepository() {
-//        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-//        db.setDataSource(dataSource);
-//
-//        return db;
-//    }
+
 }
