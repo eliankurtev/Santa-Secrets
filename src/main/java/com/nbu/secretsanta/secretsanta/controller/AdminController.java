@@ -17,7 +17,7 @@ public class AdminController {
     @Autowired
     AdminService adminService;
 
-    @PostMapping("/start_date")
+    @PostMapping("/registration_date")
     public String getDate(@ModelAttribute("date") AdminDto adminDto) {
 
         adminService.saveAdmin(adminDto);

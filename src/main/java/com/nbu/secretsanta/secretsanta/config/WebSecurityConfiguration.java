@@ -49,7 +49,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/admin/start_date/**").hasAnyAuthority("ROLE_ADMIN")
                 .antMatchers("/user/**").hasAnyAuthority("ROLE_USER")
-                .antMatchers("/gift").permitAll()
+                .antMatchers("/giftee/**").hasAnyAuthority("ROLE_USER")
+                .antMatchers("/gift/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -81,11 +82,5 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         authenticationProvider.setPasswordEncoder(passwordEncoder);
         return authenticationProvider;
     }
-//    @Bean
-//    public PersistentTokenRepository persistentTokenRepository() {
-//        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-//        db.setDataSource(dataSource);
-//
-//        return db;
-//    }
+
 }
