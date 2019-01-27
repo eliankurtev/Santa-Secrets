@@ -20,7 +20,7 @@ public class AdminController {
     @PostMapping("/registration_date")
     public String getDate(@ModelAttribute("date") AdminDto adminDto) {
 
-        adminService.saveAdmin(adminDto);
+        adminService.save(adminDto);
         gifteeService.scheduleShuffling();
 
         return "redirect:ScreenAdmin";

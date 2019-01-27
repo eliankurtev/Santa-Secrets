@@ -8,17 +8,63 @@ import com.nbu.secretsanta.secretsanta.service.interfaces.TransformationSrvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class AdminServiceImpl implements AdminService {
+    private final AdminRepository adminRepository;
+
     @Autowired
-    private AdminRepository adminRepository;
+    public AdminServiceImpl(AdminRepository adminRepository){this.adminRepository = adminRepository;}
 
     @Autowired
     private TransformationSrvice transformationSrvice;
 
     @Override
-    public Admin saveAdmin(AdminDto adminDto){
-        return adminRepository.save(transformationSrvice.dtoToEntity(adminDto));
+    public Date showRegEndDate() {
+        Admin admin = adminRepository.findAll().get(0);
+        Date date = admin.getRegistrationEndDate();
+        return date;
+    }
+
+    @Override
+    public Date showGiftGivingDate() {
+        Admin admin = adminRepository.findAll().get(0);
+        Date date = admin.getGiftsDate();
+        return date;
+    }
+
+    @Override
+    public String showAdminGiftPrice() {
+        Admin admin = adminRepository.findAll().get(0);
+        String price = admin.getAdminPrice();
+        return price;
+    }
+
+    @Override
+    public void save(AdminDto admin) {
+         adminRepository.save(transformationSrvice.dtoToEntity(admin));
+    }
+
+    @Override
+    public void setAdminGiftPrice(String price) {
+        Admin admin = adminRepository.findAll().get(0);
+        admin.setAdminPrice(price);
+        adminRepository.save(admin);
+    }
+
+    @Override
+    public void setRegEndDate(Date endDate) {
+        Admin admin = adminRepository.findAll().get(0);
+        admin.setRegistrationEndDate(endDate);
+         adminRepository.save(admin);
+    }
+
+    @Override
+    public void setGiftGivingDate(Date giftDate) {
+        Admin admin = adminRepository.findAll().get(0);
+        admin.setGiftsDate(giftDate);
+        adminRepository.save(admin);
     }
 
     @Override
