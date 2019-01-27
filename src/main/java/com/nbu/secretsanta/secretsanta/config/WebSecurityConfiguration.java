@@ -46,9 +46,11 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
-                .antMatchers("/user/**").hasAnyAuthority("ROLE_USER")
-                .antMatchers("/gift").permitAll()
+//                .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
+//                .antMatchers("/admin/start_date/**").hasAnyAuthority("ROLE_ADMIN")
+//                .antMatchers("/user/**").hasAnyAuthority("ROLE_USER")
+//                .antMatchers("/giftee/**").hasAnyAuthority("ROLE_USER")
+                .antMatchers("/admin/**", "/user/**", "/giftee/**","/user_not","/registration", "/login/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -59,15 +61,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usernameParameter("loginUsername")
                 .and()
                 .exceptionHandling()
-        .and()
-        .rememberMe()
-        .key("uniqueAndSecret")
-        .tokenValiditySeconds(86700);
-//        .and()
-//        .anonymous().disable();
-//                .accessDeniedPage("/error/403");
+                .and()
+                .rememberMe()
+                .key("uniqueAndSecret")
+                .tokenValiditySeconds(86700)
+                .rememberMeParameter("remember-me");
     }
-
 
     @Override
     public void configure(WebSecurity web) {
@@ -83,11 +82,5 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         authenticationProvider.setPasswordEncoder(passwordEncoder);
         return authenticationProvider;
     }
-//    @Bean
-//    public PersistentTokenRepository persistentTokenRepository() {
-//        JdbcTokenRepositoryImpl db = new JdbcTokenRepositoryImpl();
-//        db.setDataSource(dataSource);
-//
-//        return db;
-//    }
+
 }

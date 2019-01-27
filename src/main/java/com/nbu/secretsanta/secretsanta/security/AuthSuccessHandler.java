@@ -20,6 +20,7 @@ public class AuthSuccessHandler   extends SavedRequestAwareAuthenticationSuccess
         if(role.contains("ADMIN")) {
             targetUrl = "/admin";
         } else if(role.contains("USER")) {
+            //TODO: Make a check if the registration date is ended
             targetUrl = "/user";
         }
         logger.info(targetUrl);

@@ -2,9 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>user_r</title>
+    <title>Registered user</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&amp;subset=latin-ext" rel="stylesheet">
+	<link rel="icon" href="../images/tab_icon.png">
+	<link rel="stylesheet" href="/css/RUser.css">
+
+
 </head>
-<body>
+<body class="container-fluid">
+	<div class="row">
+		<!--  -->
+	    <div class="col-sm-9 text-center">
+	    	<!-- Time left to gift day -->
+	    	<figure>
+	          <img src="../images/nrUserPage/topOfNRUserPage.png" class="img-fluid animateTopSideImg"  alt="top desk">
+	        </figure>
+	        <!-- GO TO GIFTIE -->
+	        <figure>
+	        	<a href="/templates/ScreenGiftie.html">
+		        	<button class="btn btn-default">
+		        		<img src="../images/rUserPage/goToGiftie.png" class="img-fluid animateTopSideImg" id="giftieButton" alt="top desk">
+		        	</button>
+	        	</a>
+	        </figure>
+	    </div>
+	    <!-- Long list with categories -->
+	    <div class="col-sm-3">
+			<figure>
+	          <img id="back" src="../images/nrUserPage/scrollLong.png" class="img-fluid animateTopSideImg"  alt="top desk">
+	          <img id="front" src="../images/nrUserPage/registeredBtn.png" class="img-fluid animateTopSideImg"  alt="top desk">
+	        </figure>
+	    </div>
+	</div>
+	<!-- BACK button -->
+	<div class="fixed-bottom">
+		<button class="btn btn-primary-outline" type="button">
+			<img class="img-fluid" id="backBtnImg" src="../images/nrUserPage/backBtn.png" alt="back btn">
+		</button>
+	</div>
+
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+	<script type="text/javascript" src="../static/js/ScreenAdmin.js"></script>
 
 </body>
 </html>

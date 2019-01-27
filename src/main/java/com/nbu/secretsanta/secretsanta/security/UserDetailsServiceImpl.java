@@ -47,7 +47,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             grantList.add(authority);
         }
 
-        return new User(appUser.getEmail(), //
+        return new User(appUser.getEmail(),
                 appUser.getPassword(), grantList);
     }
 
