@@ -54,7 +54,7 @@ public class LoginController {
 
     @GetMapping("/error/403")
     public String error() {
-        return "AccessDenied";
+        return "Error";
     }
 
 }
