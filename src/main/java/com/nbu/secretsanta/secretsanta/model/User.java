@@ -41,7 +41,7 @@ public class User {
     private String password;
 
 
-    @ManyToMany(fetch = FetchType.LAZY,
+    @ManyToMany(fetch = FetchType.EAGER,
             cascade = {
                     CascadeType.ALL,
             })
