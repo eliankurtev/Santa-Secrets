@@ -18,13 +18,11 @@ body {
 }
 
 .backBtn {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-  font-size: 18px;
+    left: 16px;
+    font-size: 18px;
 }
 
 #backBtnImg {
-	max-height: 200px;
-	max-width: 200px;
+    max-height: 200px;
+    max-width: 200px;
 }

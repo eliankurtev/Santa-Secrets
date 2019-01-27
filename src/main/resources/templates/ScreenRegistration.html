@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:h="http://www.w3.org/1999/html" lang="en">
 
 <head>
     <!-- REQUIRED META TAGS -->
@@ -34,66 +34,37 @@
 <!-- SECOND ROW -->
 <div class="row">
 
-    <div id="formSection" class="col-sm-12 col-md-6 mt-3">
-        <form th:action="@{/login}" id="loginForm" action="" method="POST">
-            <div th:if="${param.error}">
-                <div class="alert alert-danger">
-                    Invalid username and password.
-                </div>
-            </div>
-            <div th:if="${param.logout}">
-                <div class="alert alert-info">
-                    You have been logged out.
-                </div>
-            </div>
-            <h2>Registration</h2>
-            <div class="formInput">
-                <div class="labels pl-5 pt-2">
-                    <label for="loginUsername">NAME</label>
-                </div>
-                <div class="textField media">
-                    <input id="loginUsername" class="align-self-center" type="text"
-                           placeholder="name" size="22" maxlength="30" value="" required>
-                </div>
-            </div>
-            <div class="formInput">
-                <div class="labels pl-5 pt-2">
-                    <label for="loginPassword">EMAIL</label>
-                </div>
-                <div class="textField media">
-                    <input id="loginPassword" class="align-self-center" type="text" name="loginPassword"
-                           placeholder="email" size="15" maxlength="15" value="" required>
-                </div>
-            </div>
-            <div class="pl-5 mt-2">
-                <div class="pretty p-default p-curve p-fill">
-                    <input type="checkbox" th:name="remember-me"/>
-                    <div class="state p-success">
-                        <label>Remember me</label>
-                    </div>
-                </div>
-            </div>
-            <div >
-                <button type="submit" class="btn btn-primary-outline" id="reg" >
-                    <img src="../images/RegistrationPage/registerBtnImg.png" class="img-fluid animateTopSideImg"  alt="top desk">
-                </button>
-            </div>
+    <div class="col-sm-12 col-md-5" id="infoSection">
+
+
+
+
+    </div>
+
+    <div class="col-sm-12 col-md-7" id="checkBoxesSection">
+        <form action="" method="POST">
+
+
+
+
+
+            <button type="submit" id="submitCategoriesBtn">
+                Registration
+            </button>
         </form>
+
     </div>
 
-
-    <div id="wishesSection" class="col-12 col-md-6 mt-3 mb-4">
-        <img src="../images/RegistrationPage/blackTable.png" alt="">
-    </div>
+    <!-- CLOSING SECOND ROW -->
 </div>
 
-<!-- BACK button -->
+
+<!-- LOGOUT button -->
 <div class="fixed-bottom">
     <button class="btn btn-primary-outline" type="button">
-        <img class="img-fluid" id="backBtnImg" src="../images/nrUserPage/backBtn.png" alt="back btn">
+        <img class="img-fluid" id="backBtnImg" src="../images/nrUserPage/logOut.png" alt="back btn">
     </button>
 </div>
-
 
 
 <!-- Optional JavaScript -->
