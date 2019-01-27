@@ -37,7 +37,15 @@
 </div>
 <div class="row">
     <div class="col-sm-12 col-md-9 d-flex justify-content-center">
-        <p id="demo" ></p>
+        <p id="demo" th:text="${demo}"></p>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+
+            var message = /*[[${demo}]]*/ 'default';
+            console.log(message);
+
+            /*]]>*/
+        </script>
     </div>
 </div>
 <!-- LOGOUT button -->
