@@ -111,3 +111,12 @@ h2{
     font-weight: bold;
     text-align: center;
 }
+.backBtn {
+    left: 16px;
+    font-size: 18px;
+}
+
+#backBtnImg {
+    max-height: 200px;
+    max-width: 200px;
+}

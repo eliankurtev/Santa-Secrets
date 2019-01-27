@@ -1,6 +1,9 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
     <title>Error</title>
     <link rel="icon" href="../images/tab_icon.png">
@@ -14,11 +17,7 @@
 
 </head>
 <body class="container-fluid">
-<div class="row">
-    <div class="col-12 d-flex justify-content-center">
-        <h1>ERROR 404<br></h1>
-    </div>
-</div>
+
 <div class="row">
     <div class="col-12 d-flex justify-content-center">
         <h1>We lost this page</h1>
@@ -36,7 +35,7 @@
 
 <div class="row">
     <div class="col-12 d-flex justify-content-center">
-        <button type="button" class="btn btn-outline-danger mb-2" id="homePageBtn">GO BACK TO HOME PAGE</button>
+        <a th:href="@{/login}" class="btn btn-outline-danger mb-2" id="homePageBtn">GO BACK TO HOME PAGE</a>
     </div>
 </div>
 <!-- Optional JavaScript -->

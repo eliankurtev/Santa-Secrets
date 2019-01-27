@@ -20,7 +20,17 @@ body {
 .btn-primary-outline {
   background-color: transparent;
 }
-
+.gifteeName{
+    padding-top: 40px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    height: 81px;
+    background-image: url("../images/giftiePage/giftieTop.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
 .backBtn {
   position: absolute;
   bottom: 8px;
@@ -32,5 +42,4 @@ body {
 	max-height: 200px;
 	max-width: 200px;
 }
-
 

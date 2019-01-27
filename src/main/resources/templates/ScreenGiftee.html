@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Giftee</title>
@@ -16,8 +19,10 @@
 	    	<!-- Time left to gift day -->
 	    	<figure>
 	          <img src="../images/giftiePage/top.png" class="img-fluid animateTopSideImg"  alt="top desk">
-	          <img src="../images/giftiePage/giftieTop.png" class="img-fluid animateTopSideImg"  alt="top desk">
+				<p th:value="${gifteeName}" class="gifteeName">SHOW THE NAME HERE </p>
 	        </figure>
+
+
 	        <!-- GIFT HINT & WISH HINT -->
 	        <figure>
 	        	<button class="btn btn-default">
