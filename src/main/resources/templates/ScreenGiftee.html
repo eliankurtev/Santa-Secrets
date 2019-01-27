@@ -13,33 +13,58 @@
 	<link rel="stylesheet" href="/css/Giftee.css">
 </head>
 <body class="container-fluid">
+<!-- FIRST ROW -->
 	<div class="row">
-		<!--  -->
-	    <div class="col-sm-8 text-center">
+	    <div class="col-sm-12 text-center">
 	    	<!-- Time left to gift day -->
 	    	<figure>
-	          <img src="../images/giftiePage/top.png" class="img-fluid animateTopSideImg"  alt="top desk">
-				<p th:value="${gifteeName}" class="gifteeName">SHOW THE NAME HERE </p>
-	        </figure>
-
-
-	        <!-- GIFT HINT & WISH HINT -->
-	        <figure>
-	        	<button class="btn btn-default">
-	        		<img src="../images/giftiePage/giftHint.png" class="img-fluid animateTopSideImg hint"  alt="top desk">
-	        	</button>
-	        	<button class="btn btn-default">
-	        		<img src="../images/giftiePage/wishHint.png" class="img-fluid animateTopSideImg hint"   alt="top desk">
-	        	</button>
+	          <img src="../images/giftiePage/giftieTop.png" class="img-fluid animateTopSideImg topImg"  alt="top desk">
+				<p th:value="${gifteeName}" class="gifteeName"></p>
 	        </figure>
 	    </div>
-	    <!-- BLACK BOARD -->
-	    <div class="col-sm-4">
-			<figure>
-	          <img id="blackBoard" src="../images/giftiePage/blackBoard.png" class="img-fluid animateTopSideImg"  alt="top desk">
-	        </figure>
-	    </div>
+		<!--CLOSING FIRST ROW -->
 	</div>
+
+
+<!-- SECOND ROW -->
+<div class="row">
+<!-- BLACK BOARD -->
+<div class="col-sm-12 col-md-6">
+
+</div>
+	<!-- GIFT HINT & WISH HINT -->
+	<div class="col-sm-12 col-md-6">
+		<div class="row">
+
+			<div class="col-sm-12">
+			<button class="btn btn-default">
+				<figure>
+				<img src="../images/giftiePage/giftHint.png" class="img-fluid animateTopSideImg hint"  alt="top desk">
+				</figure>
+			</button>
+
+			</div>
+
+			<div class="col-sm-12">
+
+			<button class="btn btn-default">
+				<figure>
+				<img src="../images/giftiePage/wishHint.png" class="img-fluid animateTopSideImg hint"   alt="top desk">
+				</figure>
+			</button>
+
+			</div>
+
+		</div>
+
+	</div>
+	<!--CLOSING SECOND ROW -->
+</div>
+
+
+
+
+
 	<!-- BACK button -->
 	<div class="fixed-bottom">
 		<button class="btn btn-primary-outline" type="button">
