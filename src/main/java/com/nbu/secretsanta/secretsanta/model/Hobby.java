@@ -2,6 +2,7 @@ package com.nbu.secretsanta.secretsanta.model;
 
 import lombok.Builder;
 import lombok.Data;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,8 +22,7 @@ public class Hobby {
 
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
+                    CascadeType.ALL,
             },
             mappedBy = "hobbies")
     private Set<User> employees = new HashSet<>();

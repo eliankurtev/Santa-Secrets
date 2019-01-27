@@ -42,6 +42,8 @@ dependencies {
     runtimeOnly('mysql:mysql-connector-java')
     compileOnly('org.projectlombok:lombok')
     compile("org.liquibase:liquibase-core")
+    compile("org.springframework:spring-jdbc")
+    compile ('org.springframework.boot:spring-boot-starter-security')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
@@ -51,13 +53,18 @@ bootRun {
     systemProperty "spring.profiles.active", activeProfile
 }
 
+bootJar {
+    baseName = 'gs-securing-web'
+    version =  '0.1.0'
+}
+
 def changeLog = "$projectDir/src/main/resources/db/changelog/master.yaml"
 
 liquibase {
     activities {
         main {
             changeLogFile changeLog
-            url 'jdbc:mysql://localhost:3306/secretss?serverTimezone=UTC'
+            url 'jdbc:mysql://localhost:3306/secretsantadb?serverTimezone=UTC'
             username 'root'
             password 'root'
         }

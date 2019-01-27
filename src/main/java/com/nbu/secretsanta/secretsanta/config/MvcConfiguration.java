@@ -11,10 +11,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("ScreenHome.html");
-        registry.addViewController("/admin").setViewName("ScreenAdmin.html");
-        registry.addViewController("/fail").setViewName("fail");
-
+        registry.addViewController("/login").setViewName("ScreenHome");
+        registry.addViewController("/admin").setViewName("ScreenAdmin");
+        registry.addViewController("/user_not").setViewName("ScreenUserNR");
+        registry.addViewController("/user").setViewName("ScreenUserR");
+        registry.addViewController("/registration").setViewName("ScreenRegistration");
+        registry.addViewController("/giftee").setViewName("ScreenGiftee");
+        registry.addViewController("/error").setViewName("Error");
     }
 
     @Bean

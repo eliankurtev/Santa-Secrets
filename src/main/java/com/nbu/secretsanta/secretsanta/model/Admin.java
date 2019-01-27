@@ -2,7 +2,9 @@ package com.nbu.secretsanta.secretsanta.model;
 
 import lombok.Builder;
 import lombok.Data;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Builder
@@ -15,10 +17,10 @@ public class Admin {
     private Long adminId;
 
     @Column(name = "registration_end_date")
-    private String registrationEndDate;
+    private Date registrationEndDate;
 
     @Column(name = "gifts_date")
-    private String giftsDate;
+    private Date giftsDate;
 
     @Column(name = "price")
     private String adminPrice;
