@@ -16,7 +16,8 @@ public class MvcConfiguration implements WebMvcConfigurer {
         registry.addViewController("/user_not").setViewName("ScreenUserNR");
         registry.addViewController("/user").setViewName("ScreenUserR");
         registry.addViewController("/registration").setViewName("ScreenRegistration");
-        registry.addViewController("/giftee").setViewName("ScreenGiftie");
+        registry.addViewController("/giftee").setViewName("ScreenGiftee");
+        registry.addViewController("/error").setViewName("Error");
     }
 
     @Bean
