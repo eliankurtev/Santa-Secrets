@@ -15,35 +15,36 @@ public class AdminServiceImpl implements AdminService {
     private final AdminRepository adminRepository;
 
     @Autowired
-    public AdminServiceImpl(AdminRepository adminRepository){this.adminRepository = adminRepository;}
+    public AdminServiceImpl(AdminRepository adminRepository) {
+        this.adminRepository = adminRepository;
+    }
 
     @Autowired
     private TransformationSrvice transformationSrvice;
 
     @Override
-    public Date showRegEndDate() {
+    public String showRegEndDate() {
         Admin admin = adminRepository.findAll().get(0);
         Date date = admin.getRegistrationEndDate();
-        return date;
+        return date.toString();
     }
 
     @Override
-    public Date showGiftGivingDate() {
+    public String showGiftGivingDate() {
         Admin admin = adminRepository.findAll().get(0);
         Date date = admin.getGiftsDate();
-        return date;
+        return date.toString();
     }
 
     @Override
     public String showAdminGiftPrice() {
         Admin admin = adminRepository.findAll().get(0);
-        String price = admin.getAdminPrice();
-        return price;
+        return admin.getAdminPrice();
     }
 
     @Override
     public void save(AdminDto admin) {
-         adminRepository.save(transformationSrvice.dtoToEntity(admin));
+        adminRepository.save(transformationSrvice.dtoToEntity(admin));
     }
 
     @Override
@@ -57,7 +58,7 @@ public class AdminServiceImpl implements AdminService {
     public void setRegEndDate(Date endDate) {
         Admin admin = adminRepository.findAll().get(0);
         admin.setRegistrationEndDate(endDate);
-         adminRepository.save(admin);
+        adminRepository.save(admin);
     }
 
     @Override
