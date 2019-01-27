@@ -11,4 +11,13 @@ public class TransformationServiceImpl implements TransformationSrvice {
     public Admin dtoToEntity(AdminDto adminDto) {
         return null;
     }
+
+    @Override
+    public AdminDto entityToDto(Admin admin){
+        return AdminDto.builder()
+                .adminPrice(admin.getAdminPrice())
+                .registrationEndDate(admin.getRegistrationEndDate().toString())
+                .giftsDate(admin.getGiftsDate().toString())
+                .build();
+    }
 }
