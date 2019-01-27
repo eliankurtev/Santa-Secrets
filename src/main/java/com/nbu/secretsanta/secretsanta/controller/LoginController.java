@@ -1,6 +1,5 @@
 package com.nbu.secretsanta.secretsanta.controller;
 
-import com.nbu.secretsanta.secretsanta.model.User;
 import com.nbu.secretsanta.secretsanta.service.interfaces.GifteeService;
 import com.nbu.secretsanta.secretsanta.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,9 +46,9 @@ public class LoginController {
     @GetMapping("/user")
     public String user() {
         SecurityContext sc = SecurityContextHolder.getContext();
-        User user = (User) sc.getAuthentication().getPrincipal();
+//        User user = (User) sc.getAuthentication().getPrincipal();
 
-        System.out.println("Logged User: " + user.getName());
+        System.out.println("Logged User: " + sc.getAuthentication().getPrincipal());
         return "ScreenUserR";
     }
 
