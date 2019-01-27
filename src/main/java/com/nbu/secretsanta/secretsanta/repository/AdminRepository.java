@@ -9,4 +9,6 @@ public interface AdminRepository extends JpaRepository<Admin, Long>{
     @Override
     Admin getOne(Long aLong);
 
+
+
 }
