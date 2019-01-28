@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20181202-1-insert-people" author="Rumyana Krumova">
+        <insert tableName="admin">
+            <column name="registration_end_date" value="2020-05-05 10:10:10"/>
+            <column name="gifts_date" value="2022-05-05 10:10:10"/>
+            <column name="price" value="100"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
