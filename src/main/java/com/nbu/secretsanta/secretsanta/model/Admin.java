@@ -2,12 +2,13 @@ package com.nbu.secretsanta.secretsanta.model;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
-@Builder
+@NoArgsConstructor
 @Entity
 @Table(name = "admin")
 public class Admin {

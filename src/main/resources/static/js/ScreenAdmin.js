@@ -1,4 +1,17 @@
 $(document).ready(function() {
+    //moment.format("yyyy-mm-dd hh:mm:ss");
+    $(function() {
+        $('#datetimepicker1').datetimepicker({
+            format: 'YYYY-MM-DD HH:MM:SS', // or 'l' (lowercase L) for non-zero-padded
+            date: moment()
+        });
+    });
+    $(function() {
+        $('#datetimepicker2').datetimepicker({
+            format: 'YYYY-MM-DD HH:MM:SS', // or 'l' (lowercase L) for non-zero-padded
+            date: moment()
+        });
+    });
     $(function () {
         $('#datetimepicker1').datetimepicker();
         $('#datetimepicker2').datetimepicker({

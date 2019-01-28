@@ -5,4 +5,6 @@ import com.nbu.secretsanta.secretsanta.model.Admin;
 
 public interface TransformationSrvice {
     Admin dtoToEntity(AdminDto adminDto);
+
+    AdminDto entityToDto(Admin admin);
 }
