@@ -5,10 +5,6 @@ import com.nbu.secretsanta.secretsanta.model.Admin;
 import com.nbu.secretsanta.secretsanta.service.interfaces.TransformationSrvice;
 import org.springframework.stereotype.Service;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Service
 public class TransformationServiceImpl implements TransformationSrvice {
     @Override
@@ -17,9 +13,11 @@ public class TransformationServiceImpl implements TransformationSrvice {
     }
 
     @Override
-    public String dateToString(Date date) {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        String strDate = dateFormat.format(date);
-        return strDate;
+    public AdminDto entityToDto(Admin admin){
+        return AdminDto.builder()
+                .adminPrice(admin.getAdminPrice())
+                .registrationEndDate(admin.getRegistrationEndDate().toString())
+                .giftsDate(admin.getGiftsDate().toString())
+                .build();
     }
 }

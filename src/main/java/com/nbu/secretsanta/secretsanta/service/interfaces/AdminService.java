@@ -6,8 +6,8 @@ import com.nbu.secretsanta.secretsanta.model.Admin;
 import java.util.Date;
 
 public interface AdminService {
-     Date showRegEndDate();
-     Date showGiftGivingDate();
+     String showRegEndDate();
+     String showGiftGivingDate();
      String showAdminGiftPrice();
      void save (AdminDto admin);
      void setAdminGiftPrice(String price);
