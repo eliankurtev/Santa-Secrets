@@ -108,12 +108,16 @@
 <!-- THIRD ROW -->
 <div class="row">
     <div class="col-12 mt-3 mb-3">
-        <form action="#" th:action="@{/admin/search}" th:object="${search}" ><!--method="post" -->
+        <form action="#" th:action="@{/admin/search}" ><!--method="post" -->
             <h2>Searching for user</h2>
             <div class="row no-gutters">
                 <div class="col">
-                    <input class="form-control border-secondary border-right-0 rounded-0" type="search" value=""
-                           id="search" name="search">
+                    <input class="form-control border-secondary border-right-0 rounded-0"
+                           type="search"
+                           value=""
+                           id="search"
+                           name="searchString"
+                           th:value="${searchString != null ? searchString : ''}">
                 </div>
                 <div class="col-auto">
                     <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button">
@@ -130,22 +134,27 @@
 
         <div>
             <h4>Search Results</h4>
-            <table>
+            <table class="users-table">
                 <thead>
                 <tr>
                     <th>Username</th>
                     <th>Name</th>
-                    <th>Family Name</th>
-                    <th>Is registered</th>
+                    <th>is registered</th>
+                    <th>unregister</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="search : ${search}">
-                    <td th:text="${search.email}">Text ...</td>
-                    <td th:text="${search.getName}">Text ...</td>
-                    <td th:text="${search.familyName}">Text ...</td>
-                    <td th:text="${search.isRegistered}">Text...</td>
-                </tr>
+                    <tr th:each="user : ${searchResult}">
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.name}"></td>
+                        <td th:text="${user.isRegistered}"></td>
+                        <td>
+                            <form th:if="${user.isRegistered}" th:action="@{/admin/unregister}" method="post">
+                                <input type="hidden" th:value="${user.userId}" name="unregisterUserId">
+                                <input type="submit" value="unregister" />
+                            </form>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -164,7 +173,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
-<script type="text/javascript" src="./node_modules/moment/moment.js"></script>
+<script type="text/javascript" src="/node_modules/moment/moment.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
         integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
         crossorigin="anonymous"></script>
@@ -172,9 +181,9 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
 <script type="text/javascript"
-        src="./node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js"></script>
+        src="/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js"></script>
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css"/>
-<script type="text/javascript" src="./js/ScreenAdmin.js"></script>
+<script type="text/javascript" src="/js/ScreenAdmin.js"></script>
 </body>
 </html>

@@ -120,3 +120,12 @@ h2{
     max-height: 200px;
     max-width: 200px;
 }
+
+.users-table {
+    color: white;
+    border-collapse: collapse;
+}
+
+.users-table, .users-table th, .users-table td {
+    border: 1px solid white;
+}
