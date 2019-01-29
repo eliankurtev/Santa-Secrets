@@ -47,7 +47,10 @@ public class LoginController {
     }
 
     @GetMapping("/user")
-    public String user() {
+    public String user(Model model) {
+        String timer = adminService.showGiftGivingDate();
+        model.addAttribute("demo2", timer);
+
         SecurityContext sc = SecurityContextHolder.getContext();
         User user = (User) sc.getAuthentication().getPrincipal();
 

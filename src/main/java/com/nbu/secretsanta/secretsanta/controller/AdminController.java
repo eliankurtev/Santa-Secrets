@@ -1,17 +1,23 @@
 package com.nbu.secretsanta.secretsanta.controller;
 
 import com.nbu.secretsanta.secretsanta.DTO.AdminDto;
+import com.nbu.secretsanta.secretsanta.model.User;
 import com.nbu.secretsanta.secretsanta.service.interfaces.AdminService;
 import com.nbu.secretsanta.secretsanta.service.interfaces.GifteeService;
+import com.nbu.secretsanta.secretsanta.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.LinkedList;
+import java.util.List;
 
 @RequestMapping("/admin")
 @Controller
 public class AdminController {
+    @Autowired
+    UserService userService;
 
     @Autowired
     GifteeService gifteeService;
@@ -35,6 +41,17 @@ public class AdminController {
     @PostMapping("/price")
     public String getPrice(@ModelAttribute("price") AdminDto adminDto){
         adminService.setAdminGiftPrice(adminDto.getAdminPrice());
+        return "redirect:/admin";
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String search(@RequestParam("search") String searchedString ,Model model) {
+        List<User> searchedList = new LinkedList<>();
+        searchedList = userService.getAllByNameContaining(searchedString);
+        model.addAttribute("search", searchedList);
+        for (User user: searchedList) {
+            System.out.println(user.getName() + "   ");
+        }
         return "redirect:/admin";
     }
 }

@@ -108,7 +108,7 @@
 <!-- THIRD ROW -->
 <div class="row">
     <div class="col-12 mt-3 mb-3">
-        <form action="#" th:action="@{/}" th:object="${search}">
+        <form action="#" th:action="@{/admin/search}" th:object="${search}" ><!--method="post" -->
             <h2>Searching for user</h2>
             <div class="row no-gutters">
                 <div class="col">
@@ -128,12 +128,12 @@
             </div>
         </form>
 
-        <div th:if="${not #lists.isEmpty(search)}">
+        <div>
             <h4>Search Results</h4>
             <table>
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>Username</th>
                     <th>Name</th>
                     <th>Family Name</th>
                     <th>Is registered</th>
@@ -141,10 +141,8 @@
                 </thead>
                 <tbody>
                 <tr th:each="search : ${search}">
-                    <td th:text="${search.id}">Text ...</td>
                     <td th:text="${search.email}">Text ...</td>
-                    <td th:text="${search.username}">Text ...</td>
-                    <td th:text="${search.name}">Text ...</td>
+                    <td th:text="${search.getName}">Text ...</td>
                     <td th:text="${search.familyName}">Text ...</td>
                     <td th:text="${search.isRegistered}">Text...</td>
                 </tr>
