@@ -1,5 +1,6 @@
 package com.nbu.secretsanta.secretsanta.controller;
 
+import com.nbu.secretsanta.secretsanta.DTO.AdminDto;
 import com.nbu.secretsanta.secretsanta.model.User;
 import com.nbu.secretsanta.secretsanta.service.interfaces.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,11 @@ public class LoginController {
     }
 
     @GetMapping("/admin")
-    public String admin() {
+    public String admin(Model model) {
+        AdminDto adminDto = new AdminDto();
+        model.addAttribute("dateS",adminDto);
+        model.addAttribute("gDate",adminDto);
+        model.addAttribute("price",adminDto);
         return "ScreenAdmin";
     }
 
@@ -42,7 +47,10 @@ public class LoginController {
     }
 
     @GetMapping("/user")
-    public String user() {
+    public String user(Model model) {
+        String timer = adminService.showGiftGivingDate();
+        model.addAttribute("demo2", timer);
+
         SecurityContext sc = SecurityContextHolder.getContext();
         User user = (User) sc.getAuthentication().getPrincipal();
 

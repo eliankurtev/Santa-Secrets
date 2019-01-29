@@ -2,19 +2,19 @@ package com.nbu.secretsanta.secretsanta.DTO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.DateSerializer;
-import lombok.Builder;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@NoArgsConstructor
 public class AdminDto {
     private Long adminId;
-    @JsonSerialize(using = DateSerializer.class)
-    @JsonFormat(pattern = "MM/DD/YYYY HH:MM")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
     private String registrationEndDate;
-    @JsonSerialize(using = DateSerializer.class)
-    @JsonFormat(pattern = "MM/DD/YYYY HH:MM")
+    @JsonSerialize(using = LocalDateTimeSerializer.class)
+    @JsonFormat(pattern = "yyyy-MM-ddTHH:mm:ss")
     private String giftsDate;
     private String adminPrice;
 }

@@ -4,15 +4,16 @@ import com.nbu.secretsanta.secretsanta.DTO.AdminDto;
 import com.nbu.secretsanta.secretsanta.model.Admin;
 import com.nbu.secretsanta.secretsanta.repository.AdminRepository;
 import com.nbu.secretsanta.secretsanta.service.interfaces.AdminService;
+import com.nbu.secretsanta.secretsanta.service.interfaces.GifteeService;
 import com.nbu.secretsanta.secretsanta.service.interfaces.TransformationSrvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-    private final AdminRepository adminRepository;
+    private  final AdminRepository adminRepository;
 
     @Autowired
     public AdminServiceImpl(AdminRepository adminRepository) {
@@ -22,23 +23,26 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private TransformationSrvice transformationSrvice;
 
+    @Autowired
+    private GifteeService gifteeService;
+
     @Override
     public String showRegEndDate() {
-        Admin admin = adminRepository.findAll().get(0);
-        Date date = admin.getRegistrationEndDate();
+        Admin admin = getAdmin();
+        LocalDateTime date = admin.getRegistrationEndDate();
         return date.toString();
     }
 
     @Override
     public String showGiftGivingDate() {
-        Admin admin = adminRepository.findAll().get(0);
-        Date date = admin.getGiftsDate();
+        Admin admin = getAdmin();
+        LocalDateTime date = admin.getGiftsDate();
         return date.toString();
     }
 
     @Override
     public String showAdminGiftPrice() {
-        Admin admin = adminRepository.findAll().get(0);
+        Admin admin = getAdmin();
         return admin.getAdminPrice();
     }
 
@@ -49,22 +53,22 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void setAdminGiftPrice(String price) {
-        Admin admin = adminRepository.findAll().get(0);
+        Admin admin = getAdmin();
         admin.setAdminPrice(price);
         adminRepository.save(admin);
     }
 
     @Override
-    public void setRegEndDate(Date endDate) {
-        Admin admin = adminRepository.findAll().get(0);
-        admin.setRegistrationEndDate(endDate);
+    public void setRegEndDate(String endDate){
+        Admin admin = getAdmin();
+        admin.setRegistrationEndDate(gifteeService.parseDate(endDate));
         adminRepository.save(admin);
     }
 
     @Override
-    public void setGiftGivingDate(Date giftDate) {
-        Admin admin = adminRepository.findAll().get(0);
-        admin.setGiftsDate(giftDate);
+    public void setGiftGivingDate(String giftDate) throws Exception {
+        Admin admin = getAdmin();
+        admin.setGiftsDate(gifteeService.parseDate(giftDate));
         adminRepository.save(admin);
     }
 
