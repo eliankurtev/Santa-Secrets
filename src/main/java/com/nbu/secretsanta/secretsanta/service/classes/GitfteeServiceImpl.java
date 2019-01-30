@@ -3,7 +3,6 @@ package com.nbu.secretsanta.secretsanta.service.classes;
 import com.nbu.secretsanta.secretsanta.DTO.GifteeDto;
 import com.nbu.secretsanta.secretsanta.model.User;
 import com.nbu.secretsanta.secretsanta.repository.UserRepository;
-import com.nbu.secretsanta.secretsanta.service.interfaces.AdminService;
 import com.nbu.secretsanta.secretsanta.service.interfaces.GifteeService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +25,6 @@ public class GitfteeServiceImpl implements GifteeService {
     @Autowired
     private UserRepository userRepository;
 
-    @Autowired
-    private AdminService adminService;
-
     private final ScheduledExecutorService shufflingScheduler = Executors.newSingleThreadScheduledExecutor();
 
     private void setGifteeToAll() {
@@ -46,6 +42,10 @@ public class GitfteeServiceImpl implements GifteeService {
     private User getGifteeForOne(User user, List<User> users, List<Long> ids) {
         Long randomId = getRandomId(ids);
         User giftee = userRepository.findByUserId(randomId);
+
+        if (!user.getIsRegistered()) {
+            return user;
+        }
 
         while (giftee == null || users.contains(giftee) || Objects.equals(user.getUserId(), randomId)) {
             randomId = getRandomId(ids);

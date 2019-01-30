@@ -43,9 +43,12 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
             log.info("ADMIN- AUTH");
             authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
             return new UsernamePasswordAuthenticationToken(user, password, authorities);
-        } else {
+        } else if (user.getIsRegistered()) {
             log.info("USER-AUTH");
             authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+            return new UsernamePasswordAuthenticationToken(user, password, authorities);
+        } else {
+            authorities.add(new SimpleGrantedAuthority("ROLE_NOT_REGISTERED"));
             return new UsernamePasswordAuthenticationToken(user, password, authorities);
         }
     }
