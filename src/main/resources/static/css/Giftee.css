@@ -16,10 +16,9 @@ body {
 .topImg{
     margin-bottom: -30px;
 }
-
-
 .gifteeName{
-    padding-top: 40px;
+    font-size: 25px;
+    padding-top: 50px;
     font-weight: bold;
     color: #FFFFFF;
     text-transform: uppercase;
