@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.LinkedList;
 import java.util.List;
 
-@Controller
+@Controller("/reg")
 public class NotRegisteredUserController {
 
     @Autowired
@@ -35,8 +35,8 @@ public class NotRegisteredUserController {
         model.addAttribute("email", user.getEmail());
         model.addAttribute("gender", gender);
 
-        List<Hobby> uiSelectedHobbies = new LinkedList<>();
-        List<Hobby> selectedHobbies = new LinkedList<>(userService.getHobbies(user));
+        LinkedList<Hobby> uiSelectedHobbies = new LinkedList<>();
+        LinkedList<Hobby> selectedHobbies = new LinkedList<>(userService.getHobbies(user));
         model.addAttribute("selectableHobbies",selectedHobbies );
         model.addAttribute("storage", uiSelectedHobbies);
         return "ScreenRegistration";

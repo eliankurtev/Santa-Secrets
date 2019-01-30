@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-@Controller
+@Controller("/meg")
 public class RegistrationController {
     @PostMapping("/register")
     public String submit(@ModelAttribute ("storage")List<Hobby> theHobbies){
