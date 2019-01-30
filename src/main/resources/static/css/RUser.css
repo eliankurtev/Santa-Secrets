@@ -24,6 +24,11 @@ body {
   font-size: 18px;
 }
 
+#backBtnImg {
+	max-height: 150px;
+	max-width: 150px;
+}
+
 #giftieButton {
   max-height: 400px;
   max-width: 400px;
@@ -40,4 +45,13 @@ body {
 #backBtnImg {
     max-height: 200px;
     max-width: 200px;
+}
+table, th, td {
+    border: 1px solid white;
+    color: white;
+}
+
+#table_container {
+    width:300px;
+    margin:0 auto;
 }
