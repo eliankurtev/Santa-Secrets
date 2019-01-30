@@ -33,7 +33,7 @@
 </div>
 <!-- SECOND ROW -->
 <div class="row">
-
+<!-- INFO ABOUT THE USER -->
     <div class="col-sm-12 col-md-5" id="infoSection">
 <h2 class="pl-5">Info about you</h2>
         <div class="formInput">
@@ -66,9 +66,17 @@
             </div>
         </div>
     </div>
+<!-- FORM FOR SUBMITTING THE CATEGORIES -->
+    <div>
 
-    <div >
         <form action="" method="POST">
+            <div>
+                <ul>
+                    <li th:each="item : ${selectableUsers}">
+                        <input type="checkbox" th:field="*{users}" th:value="${item}" />
+                        <label th:for="${#ids.prev('users')}" th:text="${item}"></label>
+                    </li>
+                </ul>
             <button type="submit" id="submitCategoriesBtn">
                 Registration
             </button>
