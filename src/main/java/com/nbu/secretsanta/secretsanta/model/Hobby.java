@@ -1,6 +1,5 @@
 package com.nbu.secretsanta.secretsanta.model;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +11,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @Table(name = "hobby")
+@NoArgsConstructor
 public class Hobby {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
