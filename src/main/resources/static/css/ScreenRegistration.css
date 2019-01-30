@@ -19,6 +19,7 @@ body{
      top: 0;
 }
 #infoSection{
+    padding-left: 30px;
 }
 #checkBoxesSection{
     background-image: url("../images/registrationPage/blackTable.png");
@@ -33,6 +34,62 @@ body{
     background-color: #CDA167;
     transition: .4s ease;
 }
+.btn-primary-outline {
+    background-color: transparent;
+}
+#logOut{
+    max-height: 130px;
+    max-width: 130px;
+}
+label{
+    font-size: 24px;
+    text-transform: uppercase;
+}
+#username{
+    padding-left: 50px;
+    padding-top: 15px;
+}
+.usernameField {
+    width: 100%;
+    height: 60px;
+    background-image: url("../images/registrationPage/nameFieldImg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.emailField {
+    width: 100%;
+    height: 60px;
+    background-image: url("../images/registrationPage/emailFieldImg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#email{
+    padding-left: 65px;
+    padding-top: 15px;
+}
+.genderField {
+    width: 100%;
+    height: 60px;
+    background-image: url("../images/registrationPage/genderFieldImg.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#gender{
+    padding-left: 140px;
+    padding-top: 15px;
+}
+p{
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+}
+h2{
+    text-transform: uppercase;
+}
+#formSection h2{
+    margin-left: 40px;
+}
+
 
 .animateTopSideImg{
   -webkit-animation: animation 3000ms linear both;
@@ -63,76 +120,4 @@ body{
   25.03% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -6.897, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -6.897, 0, 1); }
   50.05% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.079, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.079, 0, 1); }
   100% { -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); } 
-}
-
-#back, #front {
-    opacity: 1;
-    position: absolute;
-    top:0;
-    right:0;
-    left:0;
-}
-.btn-primary-outline {
-  background-color: transparent;
-}
-
-.backBtn {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-  font-size: 18px;
-}
-
-#backBtnImg {
-  max-height: 150px;
-  max-width: 150px;
-}
-.formInput div input{
-    border: none;
-    background: transparent;
-    outline: none;
-    margin-left: 55px;
-}
-label{
-    font-size: 24px;
-    text-transform: uppercase;
-}
-.usernameField {
-    width: 100%;
-    height: 55px;
-    background-image: url("../images/registrationPage/nameFieldImg.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-.emailField {
-    width: 100%;
-    height: 55px;
-    background-image: url("../images/registrationPage/emailFieldImg.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-.genderField {
-    width: 100%;
-    height: 55px;
-    background-image: url("../images/registrationPage/genderFieldImg.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-.textField input{
-    max-width:100%;
-    height: auto;
-    font-size: 20px;
-    color: #004000;
-    font-weight: bold;
-    width: auto;
-    /*margin-left:75px;*/
-}
-h2{
-    text-transform: uppercase;
-}
-#formSection h2{
-    margin-left: 40px;
-}
-.usernameField, .emailField, .genderField {
-    margin-left: 10%;
 }

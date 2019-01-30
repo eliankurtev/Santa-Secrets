@@ -35,33 +35,30 @@
 <div class="row">
 <!-- INFO ABOUT THE USER -->
     <div class="col-sm-12 col-md-5" id="infoSection">
-<h2 class="pl-5">Info about you</h2>
+<h2>Info about you</h2>
         <div class="formInput">
-            <div class="labels pl-5 pt-2">
+            <div class="pt-2">
                 <label for="username">Username</label>
             </div>
             <div class="usernameField media">
-                <!-- @Rumy -->
                 <p th:text="${username}" id="username" class="align-self-center"></p>
             </div>
         </div>
 
         <div class="formInput">
-            <div class="labels pl-5 pt-2">
+            <div class="pt-2">
                 <label for="email">Email</label>
             </div>
             <div class="emailField media">
-                <!-- @Rumy -->
                 <p th:text="${email}" id="email" class="align-self-center"></p>
             </div>
         </div>
 
         <div class="formInput">
-            <div class="labels pl-5 pt-2">
+            <div class="pt-2">
                 <label for="gender">Gender</label>
             </div>
             <div class="genderField media">
-                <!-- @Rumy -->
                 <p th:text="${gender}" id="gender" class="align-self-center"></p>
             </div>
         </div>
@@ -94,9 +91,9 @@
 
 <!-- LOGOUT button -->
 <div class="fixed-bottom">
-    <button class="btn btn-primary-outline" type="button">
-        <img class="img-fluid" id="backBtnImg" src="../images/nrUserPage/logOut.png" alt="back btn">
-    </button>
+    <a th:href="@{/logout}" class="btn btn-primary-outline">
+        <img class="img-fluid" id="logOut" src="../images/nrUserPage/logOut.png" alt="back btn">
+    </a>
 </div>
 
 
