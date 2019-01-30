@@ -9,7 +9,6 @@ import java.util.Set;
 
 @Data
 @Entity
-@NoArgsConstructor
 @Table(name = "hobby")
 @NoArgsConstructor
 public class Hobby {
