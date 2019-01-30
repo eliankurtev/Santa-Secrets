@@ -1,3 +1,6 @@
+html{
+    font-family: 'Righteous', cursive;
+}
 body {
     background: url("../images/giftiePage/background.jpg") no-repeat center center fixed;
   	-webkit-background-size: cover;
@@ -39,3 +42,12 @@ body {
 	max-width: 200px;
 }
 
+h2{
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+.wishOrGift{
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: bold;
+}

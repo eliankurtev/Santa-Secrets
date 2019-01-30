@@ -44,14 +44,25 @@ public class AdminController {
         return "redirect:/admin";
     }
 
+    @PostMapping("/unregister")
+    public String unregister(@RequestParam(value = "unregisterUserId", required = false) Long userId){
+        User user = userService.getUserById(userId);
+        userService.unregUser(user); //TODO: unregister by id
+        return "redirect:/admin";
+    }
+
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String search(@RequestParam("search") String searchedString ,Model model) {
-        List<User> searchedList = new LinkedList<>();
+    public String search(@RequestParam(value = "searchString", required = false) String searchedString, Model model) {
+        List<User> searchedList;
         searchedList = userService.getAllByNameContaining(searchedString);
-        model.addAttribute("search", searchedList);
+        model.addAttribute("dateS", new AdminDto());
+        model.addAttribute("gDate", new AdminDto());
+        model.addAttribute("price", new AdminDto());
+        model.addAttribute("searchString", searchedString);
+        model.addAttribute("searchResult", searchedList);
         for (User user: searchedList) {
             System.out.println(user.getName() + "   ");
         }
-        return "redirect:/admin";
+        return "ScreenAdmin";
     }
 }
