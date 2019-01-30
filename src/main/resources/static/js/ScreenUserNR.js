@@ -28,7 +28,8 @@ var x = setInterval(function() {
     // If the count down is finished, write some text
     if (distance < 0) {
         clearInterval(x);
-        $("#btnRegister").removeAttr('href');
+        //TODO: CHROMA IMAGE
+        //$("#btnRegister").removeAttr('href');
         document.getElementById("demo").innerHTML = "EXPIRED";
 
 
