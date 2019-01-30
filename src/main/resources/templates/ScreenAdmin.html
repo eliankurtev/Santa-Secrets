@@ -38,20 +38,21 @@
 
         <div class="row">
             <!-- SET REGISTRATION TIMER FORM -->
-            <form action="" method="GET" class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3" id="registrationTimer">
+            <form th:action="@{/admin/registration_date}"
+                  th:object="${dateS}" method="post" class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3" id="registrationTimer">
                 <div class="formsInnerContent">
 
                     <h4>Set registration timer</h4>
                     <div class="form-group">
                         <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input textField"
+                            <input th:field="*{registrationEndDate}"  type="text" class="form-control datetimepicker-input textField"
                                    data-target="#datetimepicker1"/>
                             <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                                 <div class="input-group-text calendar"><i class="fa fa-calendar"></i></div>
                             </div>
                         </div>
 
-                        <button type="submit" name="submitRegistrationTimer" class="submitBtns">Submit</button>
+                        <button type="submit" class="submitBtns">Submit</button>
                     </div>
                 </div>
                 <!--CLOSING SET REGISTRATION TIMER FORM -->
@@ -59,38 +60,40 @@
 
 
             <!-- SET GIFT TIMER FORM -->
-            <form action="" method="GET" class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3" id="giftTimer">
+            <form  th:action="@{/admin/gifts_date}"
+                   th:object="${gDate}" method="post" class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3" id="giftTimer">
 
                 <div class="formsInnerContent">
 
                     <h4>Set christmas party day</h4>
                     <div class="form-group">
                         <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input textField"
+                            <input th:field="*{giftsDate}" type="text" class="form-control datetimepicker-input textField"
                                    data-target="#datetimepicker2"/>
                             <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                                 <div class="input-group-text calendar"><i class="fa fa-calendar"></i></div>
                             </div>
                         </div>
 
-                        <button type="submit" name="submitRegistrationTimer" class="submitBtns">Submit</button>
+                        <button type="submit"  class="submitBtns">Submit</button>
                     </div>
                 </div>
                 <!--CLOSING SET GIFT TIMER FORM -->
             </form>
 
             <!-- SET GIFT PRICE FORM -->
-            <form action="" method="GET" class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3" id="maxGiftPrice">
+            <form th:action="@{/admin/price}"
+                  th:object="${price}" method="post" class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3" id="maxGiftPrice">
                 <div class="formsInnerContent">
                     <h4>Set max price of a gift</h4>
                     <div class="input-group">
-                        <input type="number" min="1" max="100" placeholder="max value 100"
+                        <input th:field="*{adminPrice}" type="number" min="1" max="100" placeholder="max value 100"
                                class="form-control textFieldPrice" required="required" aria-label="">
                         <div class="input-group-append">
                             <span class="input-group-text dollar">$</span>
                         </div>
                     </div>
-                    <button type="submit" name="submitPrice" class="submitBtns">Submit</button>
+                    <button type="submit"  class="submitBtns">Submit</button>
 
                 </div>
 

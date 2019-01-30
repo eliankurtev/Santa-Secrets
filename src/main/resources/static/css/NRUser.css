@@ -1,3 +1,7 @@
+html{
+    font-family: 'Righteous', cursive ;
+    color:#FFFFFF;
+}
 body {
      background: url("../images/nrUserPage/background.jpg") no-repeat center center fixed;
   	-webkit-background-size: cover;
@@ -25,4 +29,23 @@ body {
 #backBtnImg {
     max-height: 200px;
     max-width: 200px;
+}
+#demo{
+    font-weight: bold;
+    font-size: 40px;
+    color: #FFFFFF;
+
+}
+h2{
+
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFFFFF;
+}
+.imgSanta{
+    max-width: 350px;
+    max-height: 650px;
+    position: absolute;
+    top:80px;
+    right:50px;
 }

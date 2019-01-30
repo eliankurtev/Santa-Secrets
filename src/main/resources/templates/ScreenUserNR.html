@@ -3,6 +3,7 @@
 
       xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
 
     <link rel="icon" href="../images/tab_icon.png">
@@ -10,7 +11,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Righteous&amp;subset=latin-ext" rel="stylesheet">
-
     <link rel="stylesheet" href="/css/NRUser.css">
     <title>Welcome</title>
 </head>
@@ -18,40 +18,36 @@
 
 <div class="row">
     <!--  -->
-    <div class="col-sm-12 col-md-9 text-center">
+    <div class="col-sm-12 col-md-12 col-lg-9 d-flex justify-content-center">
         <figure>
-            <img src="../images/nrUserPage/topOfNRUserPage.png" class="img-fluid animateTopSideImg" alt="top desk">
+            <img src="../images/nrUserPage/topOfNRUserPage.png" class="img-fluid" alt="top desk">
         </figure>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-9 d-flex justify-content-center">
         <figure>
             <a th:href="@{/register}">
-                <img src="../images/nrUserPage/registerBtn.png" class="img-fluid animateTopSideImg" alt="top desk">
+                <img src="../images/nrUserPage/registerBtn.png" class="img-fluid" alt="register button">
             </a>
         </figure>
     </div>
     <!-- Santa -->
-    <div class="col-sm-12 col-md-3">
+    <div class="col-sm-12 col-md-12 col-lg-3 d-flex justify-content-center">
     <figure>
-        <img id="back" src="../images/nrUserPage/santa.png" class="img-fluid animateTopSideImg" alt="top desk">
+        <img src="../images/nrUserPage/santa.png" class="img-fluid imgSanta mt-5" alt="santa">
     </figure>
 </div>
 </div>
+<!-- SECOND ROW -->
 <div class="row">
-    <div class="col-sm-12 col-md-9 d-flex justify-content-center">
+    <h2 class="col-sm-12 col-md-12 col-lg-9 d-flex justify-content-center" >Countdown to end of registration</h2>
+    <div class="col-sm-12 col-md-12 col-lg-9 d-flex justify-content-center mb-3">
         <p id="demo" th:text="${demo}"></p>
-        <script th:inline="javascript">
-            /*<![CDATA[*/
-
-            var message = /*[[${demo}]]*/ 'default';
-            console.log(message);
-
-            /*]]>*/
-        </script>
     </div>
 </div>
 <!-- LOGOUT button -->
 <div class="fixed-bottom">
     <a th:href="@{/logout}">
-        <img class="img-fluid" id="backBtnImg" src="../images/nrUserPage/logOut.png" alt="back btn">
+        <img class="img-fluid" id="backBtnImg" src="../images/nrUserPage/logOut.png" alt="logout btn">
     </a>
 </div>
 
@@ -67,7 +63,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
-<script src="./js/ScreenUserNR.js"></script>
+<script>
+    $(document).ready(function() {
+        var timer = "[[${demo}]]";
+        //console.log(timer);
+        document.getElementById("demo").setAttribute("data-timer", timer);
+    });
+</script>
+<script type="text/javascript" src="./js/ScreenUserNR.js"></script>
 
 
 </body>

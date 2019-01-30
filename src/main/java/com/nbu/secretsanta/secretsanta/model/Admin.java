@@ -1,15 +1,15 @@
 package com.nbu.secretsanta.secretsanta.model;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
-@Builder
 @Entity
 @Table(name = "admin")
+@NoArgsConstructor
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +17,10 @@ public class Admin {
     private Long adminId;
 
     @Column(name = "registration_end_date")
-    private Date registrationEndDate;
+    private LocalDateTime registrationEndDate;
 
     @Column(name = "gifts_date")
-    private Date giftsDate;
+    private LocalDateTime giftsDate;
 
     @Column(name = "price")
     private String adminPrice;

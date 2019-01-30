@@ -1,6 +1,10 @@
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+$(document).ready(function() {
+    //console.log("Ready!");
+    var timerPassed = $("#demo").data("timer");
+    //console.log(timerPassed);
 
+// Set the date we're counting down to
+var countDownDate = new Date(timerPassed).getTime();
 // Update the count down every 1 second
 var x = setInterval(function() {
 
@@ -26,3 +30,4 @@ var x = setInterval(function() {
         document.getElementById("demo").innerHTML = "EXPIRED";
     }
 }, 1000);
+});

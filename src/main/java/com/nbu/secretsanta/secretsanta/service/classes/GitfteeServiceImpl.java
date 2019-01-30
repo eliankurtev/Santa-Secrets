@@ -1,7 +1,6 @@
 package com.nbu.secretsanta.secretsanta.service.classes;
 
 import com.nbu.secretsanta.secretsanta.DTO.GifteeDto;
-import com.nbu.secretsanta.secretsanta.model.Admin;
 import com.nbu.secretsanta.secretsanta.model.User;
 import com.nbu.secretsanta.secretsanta.repository.UserRepository;
 import com.nbu.secretsanta.secretsanta.service.interfaces.AdminService;
@@ -10,7 +9,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -22,16 +29,18 @@ public class GitfteeServiceImpl implements GifteeService {
     @Autowired
     private AdminService adminService;
 
+    private final ScheduledExecutorService shufflingScheduler = Executors.newSingleThreadScheduledExecutor();
+
     private void setGifteeToAll() {
         List<User> users = userRepository.findAll();
         List<User> usersGiftees = userRepository.findAll();
         List<Long> userIds = usersGiftees.stream().map(User::getUserId).collect(Collectors.toList());
         log.info(users.toString());
-            for (User u : users) {
-                User giftee = getGifteeForOne(u, usersGiftees, userIds);
-                userIds.remove(giftee.getUserId());
-                usersGiftees.remove(giftee);
-            }
+        for (User u : users) {
+            User giftee = getGifteeForOne(u, usersGiftees, userIds);
+            userIds.remove(giftee.getUserId());
+            usersGiftees.remove(giftee);
+        }
     }
 
     private User getGifteeForOne(User user, List<User> users, List<Long> ids) {
@@ -54,25 +63,27 @@ public class GitfteeServiceImpl implements GifteeService {
     }
 
     @Override
-    public void scheduleShuffling() {
-        Admin admin = adminService.getAdmin();
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                setGifteeToAll();
-            }
-        }, admin.getRegistrationEndDate());
-
+    public void scheduleShuffling(String gameDuration) {
+        Runnable scheduleShufflingTask = this::setGifteeToAll;
+        log.info("Scheduling employee shuffling");
+        Duration duration = Duration.between(LocalDateTime.now(), parseDate(gameDuration).plusMinutes(1));
+        shufflingScheduler.schedule(scheduleShufflingTask, duration.getSeconds(), TimeUnit.SECONDS);
     }
 
     @Override
-    public GifteeDto getGifteeData(Long user){
+    public GifteeDto getGifteeData(Long user) {
         User user1 = userRepository.findByUserId(user);
         User giftee = user1.getGiftee();
         return GifteeDto.builder()
                 .hobbies(giftee.getHobbies())
                 .name(giftee.getName())
                 .build();
+    }
+
+    @Override
+    public LocalDateTime parseDate(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return LocalDateTime.parse(date, formatter);
+
     }
 }

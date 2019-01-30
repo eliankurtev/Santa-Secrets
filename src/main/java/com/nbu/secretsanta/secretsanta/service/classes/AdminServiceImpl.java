@@ -4,11 +4,12 @@ import com.nbu.secretsanta.secretsanta.DTO.AdminDto;
 import com.nbu.secretsanta.secretsanta.model.Admin;
 import com.nbu.secretsanta.secretsanta.repository.AdminRepository;
 import com.nbu.secretsanta.secretsanta.service.interfaces.AdminService;
+import com.nbu.secretsanta.secretsanta.service.interfaces.GifteeService;
 import com.nbu.secretsanta.secretsanta.service.interfaces.TransformationSrvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -22,17 +23,20 @@ public class AdminServiceImpl implements AdminService {
     @Autowired
     private TransformationSrvice transformationSrvice;
 
+    @Autowired
+    private GifteeService gifteeService;
+
     @Override
     public String showRegEndDate() {
         Admin admin = adminRepository.findAll().get(0);
-        Date date = admin.getRegistrationEndDate();
+        LocalDateTime date = admin.getRegistrationEndDate();
         return date.toString();
     }
 
     @Override
     public String showGiftGivingDate() {
         Admin admin = adminRepository.findAll().get(0);
-        Date date = admin.getGiftsDate();
+        LocalDateTime date = admin.getGiftsDate();
         return date.toString();
     }
 
@@ -55,16 +59,16 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void setRegEndDate(Date endDate) {
+    public void setRegEndDate(String endDate){
         Admin admin = adminRepository.findAll().get(0);
-        admin.setRegistrationEndDate(endDate);
+        admin.setRegistrationEndDate(gifteeService.parseDate(endDate));
         adminRepository.save(admin);
     }
 
     @Override
-    public void setGiftGivingDate(Date giftDate) {
+    public void setGiftGivingDate(String giftDate) throws Exception {
         Admin admin = adminRepository.findAll().get(0);
-        admin.setGiftsDate(giftDate);
+        admin.setGiftsDate(gifteeService.parseDate(giftDate));
         adminRepository.save(admin);
     }
 

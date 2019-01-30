@@ -38,7 +38,7 @@
     <div id="formSection" class="col-sm-12 col-md-6 mt-3">
 
 
-        <form th:action="@{/login}" id="loginForm" action="" method="POST">
+        <form th:action="@{/login}" id="loginForm" method="POST">
             <div th:if="${param.error}">
                 <div class="alert alert-danger">
                     Invalid username and password.

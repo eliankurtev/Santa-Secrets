@@ -3,15 +3,13 @@ package com.nbu.secretsanta.secretsanta.service.interfaces;
 import com.nbu.secretsanta.secretsanta.DTO.AdminDto;
 import com.nbu.secretsanta.secretsanta.model.Admin;
 
-import java.util.Date;
-
 public interface AdminService {
      String showRegEndDate();
      String showGiftGivingDate();
      String showAdminGiftPrice();
      void save (AdminDto admin);
      void setAdminGiftPrice(String price);
-     void setRegEndDate(Date endDate);
-     void setGiftGivingDate(Date giftDate);
+     void setRegEndDate(String endDate) throws Exception;
+     void setGiftGivingDate(String giftDate) throws Exception;
      Admin getAdmin();
 }
