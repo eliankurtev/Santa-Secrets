@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:layout="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
     <!-- REQUIRED META TAGS -->
@@ -63,31 +63,23 @@
             </div>
         </div>
     </div>
+</div>
 <!-- FORM FOR SUBMITTING THE CATEGORIES -->
-    <div>
-
-        <form action="" method="POST">
-            <div>
-                <ul>
-                    <li th:each="item : ${selectableUsers}">
-                        <input type="checkbox" th:field="*{users}" th:value="${item}" />
-                        <label th:for="${#ids.prev('users')}" th:text="${item}"></label>
-                    </li>
-                </ul>
-            <button type="submit" id="submitCategoriesBtn">
-                Registration
-            </button>
+    <div class="ui attached segment">
+        <form class="ui form" th:action="@{/register}" method="POST" th:object="${storage}" >
+            <ul>
+                <li th:each="hobby : ${selectableHobbies}">
+                    <div class="ui checkbox">
+                        <input type="checkbox" th:field="${storage.add(hobby)}" th:value="${hobby}">
+                        <label th:text="${hobby.name()}"></label>
+                    </div>
+                </li>
+            </ul>
+            <div clas="field">
+                <button class="ui button" type="submit">Submit</button>
+            </div>
         </form>
     </div>
-
-    <div class="col-sm-12 col-md-7" id="checkBoxesSection" >
-    </div>
-
-
-
-
-</div>
-
 
 <!-- LOGOUT button -->
 <div class="fixed-bottom">

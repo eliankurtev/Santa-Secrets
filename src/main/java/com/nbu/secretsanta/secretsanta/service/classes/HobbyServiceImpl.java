@@ -4,12 +4,13 @@ import com.nbu.secretsanta.secretsanta.model.Hobby;
 import com.nbu.secretsanta.secretsanta.repository.HobbyRepository;
 import com.nbu.secretsanta.secretsanta.service.interfaces.HobbyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-
+@Service
 public class HobbyServiceImpl implements HobbyService {
     private final HobbyRepository hobbyRepository;
     @Autowired

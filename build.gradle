@@ -65,8 +65,8 @@ liquibase {
         main {
             changeLogFile changeLog
             url 'jdbc:mysql://localhost:3306/secretsantadb?serverTimezone=UTC'
-            username 'root'
-            password '28642864'
+            username 'mysql'
+            password 'mysql'
         }
     }
 }

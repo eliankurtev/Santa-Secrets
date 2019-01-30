@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
     // specific indexes in
     // an ArrayList instead of initializing
     // all these variables
-    public List<Integer> countAllUsers() {
+    public Map<String, Integer> countAllUsers() {
         Integer totalCount = (int) userRepository.count();
         Integer regCount = 0;
         Integer notRegCount = 0;
@@ -62,12 +62,12 @@ public class UserServiceImpl implements UserService {
                 femaleCount+=1;
             }else{maleCount+=1;}
         }
-        List<Integer> results = new LinkedList<>();
-        results.add(totalCount);
-        results.add(regCount);
-        results.add(notRegCount);
-        results.add(femaleCount);
-        results.add(maleCount);
+        Map<String, Integer> results = new HashMap<>();
+        results.put(" Total Users ",totalCount);
+        results.put(" Registrated Users ",regCount);
+        results.put(" Not Registrated Users ",notRegCount);
+        results.put(" Women <3 ",femaleCount);
+        results.put(" Man ;( ",maleCount);
         return results;
     }
 
