@@ -28,12 +28,32 @@
 
 <!-- SECOND ROW -->
 <div class="row">
-<!-- BLACK BOARD -->
+<!-- CATEGORIES BOARD -->
 <div class="col-sm-12 col-md-6">
+	<div class="row">
 
+		<div class="col-sm-12 d-flex justify-content-center">
+<h2>Your giftee likes</h2>
+			<div class="table-responsive">
+			<!-- Тук са категориите на гифтито -->
+			<table class="table table-striped table-hover ">
+				<tr th:each="something" class="table-primary">
+					<td th:text="something">Example 1</td>
+				</tr>
+				<!---<tr class="table-primary">
+					<td>Example 2</td>
+				</tr> -->
+			</table>
+			</div>
+	</div>
+	<div class="col-sm-12 d-flex justify-content-center">
+		<!-- @Ophelia тук трябва да ти е нещото за рандъм wish or gift -->
+		<p th:value="something" class="wishOrGift">wish or hint displays here</p>
+	</div>
+	</div>
 </div>
 	<!-- GIFT HINT & WISH HINT -->
-	<div class="col-sm-12 col-md-6">
+	<div class="col-sm-12 col-md-6 mt-sm-3">
 		<div class="row">
 
 			<div class="col-sm-12">
@@ -64,13 +84,6 @@
 
 
 
-
-	<!-- BACK button -->
-	<div class="fixed-bottom">
-		<button class="btn btn-primary-outline" type="button">
-			<img class="img-fluid" id="backBtnImg" src="../images/nrUserPage/backBtn.png" alt="back btn">
-		</button>
-	</div>
 
 
 	<!-- Optional JavaScript -->
