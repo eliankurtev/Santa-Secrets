@@ -42,7 +42,7 @@
             </div>
             <div class="usernameField media">
                 <!-- @Rumy -->
-                <p id="username" class="align-self-center"></p>
+                <p th:text="${username}" id="username" class="align-self-center"></p>
             </div>
         </div>
 
@@ -52,7 +52,7 @@
             </div>
             <div class="emailField media">
                 <!-- @Rumy -->
-                <p id="email" class="align-self-center"></p>
+                <p th:text="${email}" id="email" class="align-self-center"></p>
             </div>
         </div>
 
@@ -62,17 +62,18 @@
             </div>
             <div class="genderField media">
                 <!-- @Rumy -->
-                <p id="gender" class="align-self-center"></p>
+                <p th:text="${gender}" id="gender" class="align-self-center"></p>
             </div>
         </div>
     </div>
+
 <!-- FORM FOR SUBMITTING THE CATEGORIES -->
     <div class="ui attached segment">
-        <form class="ui form" th:actrion="@{/checkBoxController}" method="POST"> <!-- th:object="${person}" -->
+        <form class="ui form" th:action="@{/register}" method="POST" th:object="${storage}" -->
             <ul>
-                <li th:each="hobby : ${selectabeleHobbies}">
+                <li th:each="hobby : ${selectableHobbies}">
                     <div class="ui checkbox">
-                        <input type="checkbox" th:field="*{hobbyStorage}" th:value="${hobby.id}">
+                        <input type="checkbox" th:field="${storage.add(hobby)}" th:value="${hobby}">
                         <label th:text="${hobby.name}"></label>
                     </div>
                 </li>
@@ -82,7 +83,6 @@
             </div>
         </form>
     </div>
-
 
 <!-- LOGOUT button -->
 <div class="fixed-bottom">
