@@ -6,12 +6,13 @@ import com.nbu.secretsanta.secretsanta.repository.GiftRepository;
 import com.nbu.secretsanta.secretsanta.repository.WishRepository;
 import com.nbu.secretsanta.secretsanta.service.interfaces.WishAndGiftService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
+@Service
 public class WishAndGiftServiceImpl implements WishAndGiftService {
     private final WishRepository wishRepository;
     private final GiftRepository giftRepository;
