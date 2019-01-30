@@ -1,5 +1,5 @@
 body {
-     background: url("/images/nrUserPage/background.jpg") no-repeat center center fixed;
+     background: url("../images/rUserPage/background.jpg") no-repeat center center fixed;
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -24,12 +24,29 @@ body {
   font-size: 18px;
 }
 
-#backBtnImg {
-	max-height: 150px;
-	max-width: 150px;
-}
-
 #giftieButton {
   max-height: 400px;
   max-width: 400px;
+}
+
+#list {
+    top: 10%;
+    position:absolute;
+    z-index: 1;
+    margin-top: 80px;
+    margin-left: 0px;
+}
+
+#backBtnImg {
+    max-height: 200px;
+    max-width: 200px;
+}
+table, th, td {
+    border: 1px solid white;
+    color: white;
+}
+
+#table_container {
+    width:300px;
+    margin:0 auto;
 }
