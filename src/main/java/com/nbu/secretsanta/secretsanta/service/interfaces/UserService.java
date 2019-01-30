@@ -6,6 +6,7 @@ import com.nbu.secretsanta.secretsanta.model.User;
 
 import javax.validation.constraints.Email;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public interface UserService {
@@ -14,7 +15,7 @@ public interface UserService {
     User getUserByEmail(@Email String i);
     User getUserById(long userId);
     List<User> getAllUsers();
-    List<Integer> countAllUsers();
+    Map<String, Integer> countAllUsers();
     List<User> getAllByNameContaining(String substring);
     void unregUser (User user);
     void changeHobbies(User user, Set<Hobby> hobbyList);

@@ -2,14 +2,15 @@ package com.nbu.secretsanta.secretsanta.model;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@Builder
 @Entity
+@NoArgsConstructor
 @Table(name = "hobby")
 public class Hobby {
     @Id
