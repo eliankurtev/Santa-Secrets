@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     //console.log("Ready!");
     var timerPassed = $("#demo").data("timer");
     //console.log(timerPassed);
@@ -27,7 +28,11 @@ var x = setInterval(function() {
     // If the count down is finished, write some text
     if (distance < 0) {
         clearInterval(x);
+        $("#btnRegister").removeAttr('href');
         document.getElementById("demo").innerHTML = "EXPIRED";
+
+
     }
+
 }, 1000);
 });
