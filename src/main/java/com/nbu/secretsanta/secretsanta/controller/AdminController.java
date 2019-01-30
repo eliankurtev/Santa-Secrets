@@ -16,6 +16,8 @@ import java.util.List;
 @RequestMapping("/admin")
 @Controller
 public class AdminController {
+    String searchedThing;
+
     @Autowired
     UserService userService;
 
@@ -48,11 +50,12 @@ public class AdminController {
     public String unregister(@RequestParam(value = "unregisterUserId", required = false) Long userId){
         User user = userService.getUserById(userId);
         userService.unregUser(user); //TODO: unregister by id
-        return "redirect:/admin/search?searchString=pat";
+        return "redirect:/admin/search?searchString="+searchedThing;
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public String search(@RequestParam(value = "searchString", required = false) String searchedString, Model model) {
+        searchedThing = searchedString;
         List<User> searchedList;
         searchedList = userService.getAllByNameContaining(searchedString);
         model.addAttribute("dateS", new AdminDto());
