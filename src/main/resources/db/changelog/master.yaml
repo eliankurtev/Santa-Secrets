@@ -1,6 +1,12 @@
 databaseChangeLog:
-- include:
-    file: db/changelog/liquibase/20181202-1-create-tables.xml
-- include:
-    file: db/changelog/liquibase/20181202-2-insert-into-tables.xml
+  - include:
+      file: db/changelog/liquibase/20181202-1-create-tables.xml
+  - include:
+      file: db/changelog/liquibase/20181202-2-insert-into-tables.xml
+  - include:
+      file: db/changelog/liquibase/20190127-1-insert-admin.xml
+  - include:
+      file: db/changelog/liquibase/20190130-1-add-gift.xml
+  - include:
+      file: db/changelog/liquibase/20190130-2-add-a-role.xml
 
