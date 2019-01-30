@@ -48,7 +48,7 @@ public class AdminController {
     public String unregister(@RequestParam(value = "unregisterUserId", required = false) Long userId){
         User user = userService.getUserById(userId);
         userService.unregUser(user); //TODO: unregister by id
-        return "redirect:/admin";
+        return "redirect:/admin/search?searchString=pat";
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
