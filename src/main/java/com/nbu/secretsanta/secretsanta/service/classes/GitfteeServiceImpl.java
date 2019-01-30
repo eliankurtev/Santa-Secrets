@@ -28,8 +28,8 @@ public class GitfteeServiceImpl implements GifteeService {
     private final ScheduledExecutorService shufflingScheduler = Executors.newSingleThreadScheduledExecutor();
 
     private void setGifteeToAll() {
-        List<User> users = userRepository.findAll();
-        List<User> usersGiftees = userRepository.findAll();
+        List<User> users = userRepository.findByIsRegisteredTrue();
+        List<User> usersGiftees = userRepository.findByIsRegisteredTrue();
         List<Long> userIds = usersGiftees.stream().map(User::getUserId).collect(Collectors.toList());
         log.info(users.toString());
         for (User u : users) {

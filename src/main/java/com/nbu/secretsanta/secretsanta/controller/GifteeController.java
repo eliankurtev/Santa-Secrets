@@ -21,13 +21,13 @@ public class GifteeController {
 
     @GetMapping("/giftee")
     public String getHobbies(Model model) {
-        setGiftee(model);
+        setGifteeAndCategories(model);
         return "ScreenGiftee";
     }
 
     @GetMapping("/giftee/wish")
     public String getWish(Model model){
-        setGiftee(model);
+        setGifteeAndCategories(model);
         String message = wishAndGiftService.drowRandWish().getMessage();
         model.addAttribute("wish", message);
         return "ScreenGiftee";
@@ -35,16 +35,17 @@ public class GifteeController {
 
     @GetMapping("/giftee/gift")
     public String getGift(Model model){
-        setGiftee(model);
+        setGifteeAndCategories(model);
         Gift gift = wishAndGiftService.drowRandGift();
         model.addAttribute("wish", gift);
         return "ScreenGiftee";
     }
 
-    private void setGiftee(Model model) {
+    private void setGifteeAndCategories(Model model) {
         SecurityContext sc = SecurityContextHolder.getContext();
         User user = (User) sc.getAuthentication().getPrincipal();
         String name = gifteeService.getGifteeData(user.getUserId()).getName();
+        model.addAttribute("hobby", user.getHobbies());
         model.addAttribute("gifteeName", name);
     }
 }

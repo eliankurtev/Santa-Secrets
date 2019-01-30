@@ -1,16 +1,16 @@
 package com.nbu.secretsanta.secretsanta.model;
 
-import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@Builder
 @Entity
 @Table(name = "hobby")
+@NoArgsConstructor
 public class Hobby {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
