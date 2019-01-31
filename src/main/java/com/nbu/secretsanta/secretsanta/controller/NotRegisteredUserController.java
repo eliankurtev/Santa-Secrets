@@ -1,5 +1,6 @@
 package com.nbu.secretsanta.secretsanta.controller;
 
+import com.nbu.secretsanta.secretsanta.config.ListWrapper;
 import com.nbu.secretsanta.secretsanta.model.Hobby;
 import com.nbu.secretsanta.secretsanta.model.User;
 import com.nbu.secretsanta.secretsanta.service.interfaces.UserService;
@@ -34,11 +35,12 @@ public class NotRegisteredUserController {
         model.addAttribute("username", user.getName());
         model.addAttribute("email", user.getEmail());
         model.addAttribute("gender", gender);
-
         LinkedList<Hobby> uiSelectedHobbies = new LinkedList<>();
+        ListWrapper lir = new ListWrapper();
+        lir.setTheList(uiSelectedHobbies);
         LinkedList<Hobby> selectedHobbies = new LinkedList<>(userService.getHobbies(user));
         model.addAttribute("selectableHobbies",selectedHobbies );
-        model.addAttribute("storage", uiSelectedHobbies);
+        model.addAttribute("storage", lir);
         return "ScreenRegistration";
     }
 

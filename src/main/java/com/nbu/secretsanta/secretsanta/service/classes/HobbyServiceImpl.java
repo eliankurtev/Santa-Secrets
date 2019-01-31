@@ -31,16 +31,16 @@ public class HobbyServiceImpl implements HobbyService {
         for(Hobby hobby: hobbies){
             hobbyMap.put(hobby,hobby.getEmployees().size());
         }
-        for(int i = 0; i <5; i++) {
+        for(int i = 0; i <6; i++) {
             Map.Entry<Hobby, Integer> maxEntry = null;
 
             for (Map.Entry<Hobby, Integer> entry : hobbyMap.entrySet()) {
-                if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
+                if (maxEntry == null || (entry.getValue().compareTo(maxEntry.getValue())) > 0) {
                     maxEntry = entry;
                 }
             }
             topFive.add(maxEntry.getKey());
-            hobbies.remove(maxEntry.getKey());
+           hobbyMap.remove(maxEntry.getKey());
         }
         return topFive;
     }
