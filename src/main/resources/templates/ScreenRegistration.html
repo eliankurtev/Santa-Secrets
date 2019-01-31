@@ -70,8 +70,8 @@
             <ul>
                 <li th:each="hobby : ${selectableHobbies}">
                     <div class="ui checkbox">
-                        <input type="checkbox" th:field="${storage.add(hobby)}" th:value="${hobby}">
-                        <label th:text="${hobby.name()}"></label>
+                        <input type="checkbox" th:field="${storage.getTheList().add(hobby)}" th:value="${hobby}">
+                        <label th:text="${storage.getTheList().get(storage.getTheList().indexOf(hobby))}"></label>
                     </div>
                 </li>
             </ul>
