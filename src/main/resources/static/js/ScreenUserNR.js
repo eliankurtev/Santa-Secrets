@@ -28,7 +28,7 @@ var x = setInterval(function() {
     // If the count down is finished, write some text
     if (distance < 0) {
         clearInterval(x);
-        //$("#btnRegister").removeAttr('href');
+        $("#btnRegister").removeAttr('href');
         $("#btnChangeImg").attr("src", "../images/nrUserPage/registerBtnExpired.png");
         document.getElementById("demo").innerHTML = "EXPIRED";
 

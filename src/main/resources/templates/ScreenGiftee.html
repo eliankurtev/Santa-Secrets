@@ -37,12 +37,7 @@
 
                 <div class="table-responsive pl-md-5 pr-md-5">
                     <!-- HERE ARE THE CATEGORIES FOR THE GIFTEE -->
-                    <table class="table table-striped table-hover">
-                        <thead>
-                        <tr>
-                            <th>Categories</th>
-                        </tr>
-                        </thead>
+                    <table class="categoriesTable table table-striped table-hover">
                         <tbody>
                         <tr th:each="hobb : ${hobby}">
                             <td th:text="${hobb.name}"></td>

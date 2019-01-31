@@ -67,7 +67,7 @@ public class UserServiceImpl implements UserService {
             } else if (user.getGender() == 0) {
                 maleCount += 1;
             } else {
-
+                sheMaleCount+=1;
             }
         }
             LinkedHashMap<String, Integer> results = new LinkedHashMap<>();
