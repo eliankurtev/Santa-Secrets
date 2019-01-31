@@ -34,7 +34,7 @@
 <!-- SECOND ROW -->
 <div class="row">
     <!-- INFO ABOUT THE USER -->
-    <div class="col-sm-12 col-md-5" id="infoSection">
+    <div class="col-sm-12 col-md-5 mb-1" id="infoSection">
         <h2>Info about you</h2>
         <div class="formInput">
             <div class="pt-2">
@@ -63,28 +63,34 @@
             </div>
         </div>
     </div>
-</div>
-<!-- FORM FOR SUBMITTING THE CATEGORIES -->
-<div class="ui attached segment">
-    <form class="ui form" th:action="@{/register}" method="get" th:object="${selectableHobbies}">
-        <ul>
-            <li th:each="hobb : ${selectableHobbies}">
-                <div class="ui checkbox">
-                    <input type="checkbox" class="ads_Checkbox" th:text="${hobb.name}" th:value="${hobb.isChecked}"
-                           name="id"/></div>
-            </li>
-        </ul>
-            <a th:href="@{/register/submit}" th:method="POST" >Submit</a>
-    </form>
+    <!-- FORM FOR SUBMITTING THE CATEGORIES -->
+<div class="col-sm-12 col-md-7 mb-1">
+    <h2>Choose your categories</h2>
+        <form class="ui form" th:action="@{/register}" method="get" th:object="${selectableHobbies}">
+            <ul>
+                <li th:each="hobb : ${selectableHobbies}" class="mb-2">
+                    <div class="pretty p-default p-curve p-fill">
+                        <input type="checkbox" th:value="${hobb.isChecked}"/>
+<div class="state p-success">
+    <label th:text="${hobb.name}"></label>
+    </div>
+                    </div>
+                </li>
+            </ul>
+            <a th:href="@{/register/submit}" th:method="POST" id="singInBtn" >Sign In</a>
+        </form>
+    </div>
 </div>
 
- <!--LOGOUT button -->
-<div class="fixed-bottom">
+<div class="row">
+    <div class="col-sm-12 mt-1">
+        <!--LOGOUT button -->
     <a th:href="@{/logout}" class="btn btn-primary-outline">
         <img class="img-fluid" id="logOut" src="../images/nrUserPage/logOut.png" alt="back btn">
     </a>
-</div>
 
+    </div>
+</div>
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
