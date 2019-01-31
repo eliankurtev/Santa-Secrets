@@ -1,5 +1,9 @@
+html{
+    font-family: 'Righteous', cursive ;
+    color:#FFFFFF;
+}
 body {
-     background: url("../../static/images/nrUserPage/background.jpg") no-repeat center center fixed; 
+     background: url("../images/nrUserPage/background.jpg") no-repeat center center fixed;
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
   	-o-background-size: cover;
@@ -18,13 +22,30 @@ body {
 }
 
 .backBtn {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-  font-size: 18px;
+    left: 16px;
+    font-size: 18px;
 }
 
 #backBtnImg {
-	max-height: 200px;
-	max-width: 200px;
+    max-height: 200px;
+    max-width: 200px;
+}
+#demo{
+    font-weight: bold;
+    font-size: 40px;
+    color: #FFFFFF;
+
+}
+h2{
+
+    text-transform: uppercase;
+    text-align: center;
+    color: #FFFFFF;
+}
+.imgSanta{
+    max-width: 350px;
+    max-height: 650px;
+    position: absolute;
+    top:80px;
+    right:50px;
 }

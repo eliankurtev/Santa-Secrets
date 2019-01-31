@@ -1,196 +1,188 @@
 <!doctype html>
-<html lang="en">
-  <head>
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="icon" href="../images/tab_icon.png">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
     <link rel="stylesheet" href="/css/ScreenAdmin.css">
-        <link href="https://fonts.googleapis.com/css?family=Righteous&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&amp;subset=latin-ext" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap-select/dist/css/bootstrap-select.css">
     <title>Secret Santa - Admin</title>
-  </head>
-  <body class="container-fluid">
-    <!-- FIRST ROW -->
-    <div id="topOfIndex" class="row">
-      <!--TODO: make the real paths-->
-      <div class="col-sm-12 d-flex justify-content-center">
+</head>
+<body class="container-fluid">
+<!-- FIRST ROW -->
+<div id="topOfIndex" class="row">
+    <div class="col-sm-12 d-flex justify-content-center">
         <figure>
-          <img src="../images/adminPage/topOfAdmin.png" class="img-fluid animateTopSideImg"  alt="top desk">
+            <img src="../images/adminPage/topOfAdmin.png" class="img-fluid animateTopSideImg" alt="top desk">
         </figure>
-      </div>
-      <!-- CLOSING FIRST ROW -->
     </div>
-    <!-- SECOND ROW -->
-    <div id="secondRow" class="row">
-      <form method="GET" action="" class="col-12">
+    <!-- CLOSING FIRST ROW -->
+</div>
+
+<!-- SECOND ROW -->
+<div class="row">
+
+    <div class="col-12 d-flex justify-content-center">
+
         <div class="row">
-          <div id="registrationTimer" class="col-sm-12 col-md-6 col-lg-3 d-flex align-content-center flex-wrap">
-            <div class="row">
-              <div class="col-12">
-                <h3>Set registration timer</h3>
-              </div>
-              <div class="col-12">
-                <select class="selectpicker selectTransparent" title="Date" data-live-search="true" data-size="5" required>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-              <option>17</option>
-              <option>18</option>
-              <option>19</option>
-              <option>20</option>
-              <option>21</option>
-              <option>22</option>
-              <option>23</option>
-              <option>24</option>
-              <option>25</option>
-              <option>26</option>
-              <option>27</option>
-              <option>28</option>
-              <option>29</option>
-              <option>30</option>
-              <option>31</option>
-            </select>
-            <select class="selectpicker" title="Month" data-live-search="true" data-size="5" required>
-              <option>January</option>
-              <option>February</option>
-              <option>March</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>September</option>
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-            <select class="selectpicker" title="Year" data-live-search="true" data-size="5" required>
-              <option>2010</option>
-              <option>2011</option>
-              <option>2012</option>
-              <option>2013</option>
-              <option>2014</option>
-              <option>2015</option>
-              <option>2016</option>
-              <option>2017</option>
-              <option>2018</option>
-              <option>2019</option>
-              <option>2020</option>
-            </select>
+            <!-- SET REGISTRATION TIMER FORM -->
+            <form th:action="@{/admin/registration_date}"
+                  th:object="${dateS}" method="post" class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3" id="registrationTimer">
+                <div class="formsInnerContent">
 
-              </div>
-            
-            </div>
-            
-           
-          </div>
-          <div id="giftTimer" class="col-sm-12 col-md-6 col-lg-3 d-flex align-content-center flex-wrap">
-            <h3>Set gift timer</h3>
-            <select class="selectpicker" title="Date" data-live-search="true" data-size="5" required>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-              <option>17</option>
-              <option>18</option>
-              <option>19</option>
-              <option>20</option>
-              <option>21</option>
-              <option>22</option>
-              <option>23</option>
-              <option>24</option>
-              <option>25</option>
-              <option>26</option>
-              <option>27</option>
-              <option>28</option>
-              <option>29</option>
-              <option>30</option>
-              <option>31</option>
-            </select>
+                    <h4>Set registration timer</h4>
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                            <input th:field="*{registrationEndDate}"  type="text" class="form-control datetimepicker-input textField"
+                                   data-target="#datetimepicker1"/>
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text calendar"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
 
-            <select class="selectpicker" title="Month" data-live-search="true" data-size="5" required>
-              <option>January</option>
-              <option>February</option>
-              <option>March</option>
-              <option>April</option>
-              <option>May</option>
-              <option>June</option>
-              <option>July</option>
-              <option>August</option>
-              <option>September</option>
-              <option>October</option>
-              <option>November</option>
-              <option>December</option>
-            </select>
-            <select class="selectpicker" title="Year" data-live-search="true" data-size="5">
-              <option>2010</option>
-              <option>2011</option>
-              <option>2012</option>
-              <option>2013</option>
-              <option>2014</option>
-              <option>2015</option>
-              <option>2016</option>
-              <option>2017</option>
-              <option>2018</option>
-              <option>2019</option>
-              <option>2020</option>
-            </select>
+                        <button type="submit" class="submitBtns">Submit</button>
+                    </div>
+                </div>
+                <!--CLOSING SET REGISTRATION TIMER FORM -->
+            </form>
 
-            <input type="number" name="" min="1" max="23" required>
-            <input type="number" name="" min="1" max="59" required>
 
-          </div>
-          <div id="maxGiftPrice" class="col-sm-12 col-md-6 col-lg-3 d-flex align-content-center flex-wrap" required>
-            <h3>Set max gift price</h3>
-            <input type="number" name="" min="1" max="100" required>
-            $
-          </div>
-          <button id="submitButton" class="col-sm-6 col-lg-3">Submit</button>
+            <!-- SET GIFT TIMER FORM -->
+            <form  th:action="@{/admin/gifts_date}"
+                   th:object="${gDate}" method="post" class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3" id="giftTimer">
+
+                <div class="formsInnerContent">
+
+                    <h4>Set christmas party day</h4>
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                            <input th:field="*{giftsDate}" type="text" class="form-control datetimepicker-input textField"
+                                   data-target="#datetimepicker2"/>
+                            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                                <div class="input-group-text calendar"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+
+                        <button type="submit"  class="submitBtns">Submit</button>
+                    </div>
+                </div>
+                <!--CLOSING SET GIFT TIMER FORM -->
+            </form>
+
+            <!-- SET GIFT PRICE FORM -->
+            <form th:action="@{/admin/price}"
+                  th:object="${price}" method="post" class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3" id="maxGiftPrice">
+                <div class="formsInnerContent">
+                    <h4>Set max price of a gift</h4>
+                    <div class="input-group">
+                        <input th:field="*{adminPrice}" type="number" min="1" max="100" placeholder="max value 100"
+                               class="form-control textFieldPrice" required="required" aria-label="">
+                        <div class="input-group-append">
+                            <span class="input-group-text dollar">$</span>
+                        </div>
+                    </div>
+                    <button type="submit"  class="submitBtns">Submit</button>
+
+                </div>
+
+                <!--CLOSING SET GIFT PRICE FORM -->
+
+            </form>
         </div>
-      </form>
+    </div>
     <!-- CLOSING SECOND ROW -->
+</div>
+
+<!-- THIRD ROW -->
+<div class="row">
+    <div class="col-12 mt-3 mb-3">
+        <form action="#" th:action="@{/admin/search}" ><!--method="post" -->
+            <h2>Searching for user</h2>
+            <div class="row no-gutters">
+                <div class="col">
+                    <input class="form-control border-secondary border-right-0 rounded-0"
+                           type="search"
+                           value=""
+                           id="search"
+                           name="searchString"
+                           th:value="${searchString != null ? searchString : ''}">
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button">
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>
+                <div class="col-auto">
+                    <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <div>
+            <h4>Search Results</h4>
+            <table class="users-table">
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>is registered</th>
+                    <th>unregister</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${searchResult}">
+                        <td th:text="${user.email}"></td>
+                        <td th:text="${user.name}"></td>
+                        <td th:text="${user.isRegistered}"></td>
+                        <td>
+                            <form th:if="${user.isRegistered}" th:action="@{/admin/unregister}" method="post">
+                                <input type="hidden" th:value="${user.userId}" name="unregisterUserId">
+                                <input type="submit" value="unregister" />
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
+</div>
+<!-- LOGOUT button -->
+<div>
+    <a th:href="@{/logout}">
+        <img class="img-fluid" id="backBtnImg" src="../images/nrUserPage/logOut.png" alt="back btn">
+    </a>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="./node_modules/bootstrap-select/js/bootstrap-select.js"></script>
-    <script type="text/javascript" src="./js/ScreenAdmin.js"></script>
-
-
-
-   
-  </body>
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="/node_modules/moment/moment.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+<script type="text/javascript"
+        src="/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.js"></script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css"/>
+<script type="text/javascript" src="/js/ScreenAdmin.js"></script>
+</body>
 </html>

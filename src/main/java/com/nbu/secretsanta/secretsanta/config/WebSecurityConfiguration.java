@@ -46,9 +46,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasAnyAuthority("ROLE_ADMIN")
-                .antMatchers("/user/**").hasAnyAuthority("ROLE_USER")
-                .antMatchers("/gift").permitAll()
+                .antMatchers("/admin/**", "/admin/start_date/**").hasAnyAuthority("ROLE_ADMIN")
+                .antMatchers("/user/**", "/giftee/**").hasAnyAuthority("ROLE_USER")
+                .antMatchers("/user_not/**","/registration/**").hasAnyAuthority("ROLE_NOT_REGISTERED")
+                .antMatchers( "/error/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -58,6 +59,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .passwordParameter("loginPassword")
                 .usernameParameter("loginUsername")
                 .and()
+                .logout()
+                .permitAll()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true)
+                .and()
                 .exceptionHandling()
                 .and()
                 .rememberMe()
@@ -65,7 +72,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .tokenValiditySeconds(86700)
                 .rememberMeParameter("remember-me");
     }
-
 
     @Override
     public void configure(WebSecurity web) {

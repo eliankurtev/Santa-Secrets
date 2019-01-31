@@ -1,0 +1,20 @@
+body {
+     background: url("../images/hintGiftPage/background.jpg") no-repeat center center fixed;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+#backBtnImg {
+	max-height: 200px;
+	max-width: 200px;
+}
+
+#blackBoard {
+	max-width: 300px;
+}
+
+#hintBtnImg {
+	max-width: 300px;
+}

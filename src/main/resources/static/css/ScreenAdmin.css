@@ -12,18 +12,120 @@ body{
 }
 
 #registrationTimer, #giftTimer, #maxGiftPrice{
-    width: 100%;
+    width: auto;
     min-height: 300px;
-    background: url("../images/adminPage/table.png"); 
-    background-repeat: no-repeat; 
-    background-size: contain; 
-    display: block;
+    background: url("../images/adminPage/table.png") no-repeat;
+    background-size: contain;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    align-items: center;
 }
-/*TODO*/
-.selectTransparent{
-  /*background-color: transparent !important;*/
-  align-self: center;
+.formsInnerContent{
+    padding:30px;
 }
-h3{
+
+.submitBtns{
+    margin-top: 15px;
+    width: 100%;
+    height: 35px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: transparent;
+    border:#694b27 solid 3px;
+    border-radius: 10px;
+}
+.submitBtns:hover{
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #694b27;
+    transition: .4s ease;
+}
+.textField{
+    margin-top: 15px;
+    color: #FFFFFF !important;
+    font-weight: bold;
+    width: 100%;
+    background-color: transparent !important;
+}
+
+.textField input{
+    min-width:100%;
+    font-size: 20px;
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+.textFieldPrice{
+    color: #FFFFFF !important;
+    width: 100%;
+    background-color: transparent !important;
+}
+.textFieldPrice input{
+    height: auto;
+    font-size: 20px;
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+h4 {
+ text-align: center;
+    margin-top: 30px;
   text-transform: uppercase;
+    color: #FFFFFF;
+font-weight: bold;
+}
+.dollar{
+    background-color: transparent !important;
+    border: none !important;
+    padding: 5px !important;
+}
+.calendar{
+    background-color: transparent !important;
+    border: none !important;
+    padding: 5px !important;
+    margin-top: 12px !important;
+}
+.input-group input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #FFFFFF;
+    opacity: 1; /* Firefox */
+}
+
+.input-group input::-ms-input-placeholder { /* Microsoft Edge */
+    color: #FFFFFF;
+}
+.form-control{
+    border: 3px solid #ffffff !important;
+}
+
+/* hide the blue outline */
+.form-control:focus {
+    outline: 0 !important;
+    border-color: initial;
+    box-shadow: none;
+}
+h2{
+    text-transform: uppercase;
+    color: #FFFFFF;
+    font-weight: bold;
+    text-align: center;
+}
+.backBtn {
+    left: 16px;
+    font-size: 18px;
+}
+
+#backBtnImg {
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.users-table {
+    color: white;
+    border-collapse: collapse;
+}
+
+.users-table, .users-table th, .users-table td {
+    border: 1px solid white;
 }

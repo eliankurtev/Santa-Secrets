@@ -64,10 +64,9 @@ label{
 
 }
 .logginButton:hover{ 
-     cursor: pointer;
-     background-color: #CDA167;
-     background: #CDA167 url(/images/indexPage/christmas_tree_button.png) no-repeat 210px center;
-     transition: .4s ease;
+    cursor: pointer;
+    background: #CDA167 url(/images/indexPage/christmas_tree_button.png) no-repeat 210px center;
+    transition: .4s ease;
 }
 
 

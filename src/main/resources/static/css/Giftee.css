@@ -1,0 +1,56 @@
+html{
+    font-family: 'Righteous', cursive;
+}
+body {
+    background: url("../images/giftiePage/background.jpg") no-repeat center center fixed;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+
+
+.btn-primary-outline {
+  background-color: transparent;
+}
+.topImg{
+    margin-bottom: -30px;
+}
+.gifteeName{
+    font-size: 25px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    height: 100px;
+    background-image: url("../images/giftiePage/giftee.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.backBtn {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 18px;
+}
+
+#backBtnImg {
+	max-height: 200px;
+	max-width: 200px;
+}
+
+h2{
+    color: #FFFFFF;
+    text-transform: uppercase;
+}
+.wishOrGift{
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.btn{
+    max-width: 350px;
+    max-height: 450px;
+}
