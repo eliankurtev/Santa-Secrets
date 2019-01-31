@@ -23,17 +23,28 @@
 		<figure>
 			<img src="../images/nrUserPage/topOfNRUserPage.png" class="img-fluid animateTopSideImg" alt="top desk">
 		</figure>
-
+	</div>
+	<div class="col-sm-12 text-center">
 		<!-- GO TO GIFTIE -->
 		<figure>
 			<a th:href="@{/giftee}">
 				<button class="btn btn-default">
-					<img src="../images/rUserPage/goToGiftie.png" class="img-fluid animateTopSideImg" id="giftieButton"
+					<img src="../images/rUserPage/goToGiftee.png" class="img-fluid animateTopSideImg" id="giftieButton"
 						 alt="top desk">
 				</button>
 			</a>
 		</figure>
-		<div id="table_container">
+	</div>
+	<div class="col-sm-12 mt-2 mb-3 text-center">
+		<div class="row">
+			<h2 class="col-sm-12">Countdown to the christmas party</h2>
+			<div class="col-sm-12">
+				<p id="demo2" th:text="${demo2}"></p>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-6 table-responsive">
+		<div class="table_container table table-striped table-hover">
 			<table align="left">
 				<thead>
 				<tr>
@@ -45,13 +56,16 @@
 					<td th:text="${hobby.name}"></td>
 				</tr>
 				</tbody>
+
 			</table>
-			<!-- ____________________________________________________________________-->
-			<table align="right" >
+		</div>
+	</div>
+	<div class="col-sm-12 col-md-6 table-responsive">
+		<div class="table_container table table-striped table-hover">
 				<thead>
 				<tr>
-					<th>Statistic</th>
-					<th>.!.</th>
+					<th>Statistics</th>
+					<th>#</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -64,6 +78,7 @@
 		</div>
 	</div>
 </div>
+
 <!-- BACK button -->
 <div class="fixed-bottom">
 	<a th:href="@{/logout}">
@@ -83,7 +98,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
 		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
 		crossorigin="anonymous"></script>
-
+<script>
+	$(document).ready(function() {
+		var timer = "[[${demo2}]]";
+		console.log(timer);
+		document.getElementById("demo2").setAttribute("data-timer", timer);
+	});
+</script>
+<script src="./js/ScreenUserR.js"></script>
 
 </body>
 </html>

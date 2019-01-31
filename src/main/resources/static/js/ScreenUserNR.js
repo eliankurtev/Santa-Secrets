@@ -17,7 +17,7 @@ var x = setInterval(function() {
 
     // Time calculations for days, hours, minutes and seconds
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))-2;
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
@@ -28,7 +28,7 @@ var x = setInterval(function() {
     // If the count down is finished, write some text
     if (distance < 0) {
         clearInterval(x);
-        //$("#btnRegister").removeAttr('href');
+        $("#btnRegister").removeAttr('href');
         $("#btnChangeImg").attr("src", "../images/nrUserPage/registerBtnExpired.png");
         document.getElementById("demo").innerHTML = "EXPIRED";
 
