@@ -47,28 +47,38 @@ public class UserServiceImpl implements UserService {
     // specific indexes in
     // an ArrayList instead of initializing
     // all these variables
-    public List<Integer> countAllUsers() {
+    public LinkedHashMap<String, Integer> countAllUsers() {
         Integer totalCount = (int) userRepository.count();
         Integer regCount = 0;
         Integer notRegCount = 0;
         Integer femaleCount = 0;
         Integer maleCount = 0;
+        Integer sheMaleCount = 0;
+
         List<User> users = userRepository.findAll();
-        for( User user: users){
-            if(user.getIsRegistered()){
-                regCount+=1;
-            }else {notRegCount+=1;}
-            if(user.getGender()==1){
-                femaleCount+=1;
-            }else{maleCount+=1;}
+        for( User user: users) {
+            if (user.getIsRegistered()) {
+                regCount += 1;
+            } else {
+                notRegCount += 1;
+            }
+            if (user.getGender() == 1) {
+                femaleCount += 1;
+            } else if (user.getGender() == 0) {
+                maleCount += 1;
+            } else {
+
+            }
         }
-        List<Integer> results = new LinkedList<>();
-        results.add(totalCount);
-        results.add(regCount);
-        results.add(notRegCount);
-        results.add(femaleCount);
-        results.add(maleCount);
-        return results;
+            LinkedHashMap<String, Integer> results = new LinkedHashMap<>();
+            results.put(" Total Users ", totalCount);
+            results.put(" Registrated Users ", regCount);
+            results.put(" Not Registrated Users ", notRegCount);
+            results.put(" Women <3 ", femaleCount);
+            results.put(" Man ;( ", maleCount);
+            results.put(" Other? ", sheMaleCount);
+            return results;
+
     }
 
     @Override
