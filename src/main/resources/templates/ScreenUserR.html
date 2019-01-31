@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 
@@ -41,37 +40,23 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>Pesho</td>
-				</tr>
-				<tr>
-					<td>Gosho</td>
+				<tr th:each="hobby : ${topFive}">
+					<td th:text="${hobby.name}"></td>
 				</tr>
 				</tbody>
 			</table>
-
-			<table align="right">
+			<!-- ____________________________________________________________________-->
+			<table align="right" >
 				<thead>
 				<tr>
-					<th>Type</th>
-					<th>Stattts</th>
+					<th>Statistic</th>
+					<th>.!.</th>
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td>Registered</td>
-					<td>20</td>
-				<tr>
-					<td>Unregistered</td>
-					<td>80</td>
-				</tr>
-				<tr>
-					<td>M</td>
-					<td>11</td>
-				</tr>
-				<tr>
-					<td>W</td>
-					<td>9</td>
+				<tr th:each=" mapEntry : ${statistic}">
+					<td th:text="${mapEntry.key}"></td>
+					<td th:text="${mapEntry.value}"></td>
 				</tr>
 				</tbody>
 			</table>
