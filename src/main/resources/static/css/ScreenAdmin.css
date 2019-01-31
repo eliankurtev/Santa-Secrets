@@ -124,8 +124,5 @@ h2{
 .users-table {
     color: white;
     border-collapse: collapse;
-}
-
-.users-table, .users-table th, .users-table td {
-    border: 1px solid white;
+    border-radius: .25rem;
 }

@@ -110,52 +110,48 @@
         <form action="#" th:action="@{/admin/search}" ><!--method="post" -->
             <h2>Searching for user</h2>
             <div class="row no-gutters">
-                <div class="col">
-                    <input class="form-control border-secondary border-right-0 rounded-0"
+                <div class="col-sm-12 input-group">
+                    <input aria-describedby="button-addon2" placeholder="Press enter or search..." class="form-control border-secondary rounded-2"
                            type="search"
                            value=""
                            id="search"
                            name="searchString"
                            th:value="${searchString != null ? searchString : ''}">
+                    <div class="input-group-append">
+                        <input class="btn btn-light" type="submit" value="Search" id="button-addon2"></input>
+                    </div>
                 </div>
-                <div class="col-auto">
-                    <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button">
-                        <i class="fa fa-close"></i>
-                    </button>
-                </div>
-                <div class="col-auto">
-                    <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
+
             </div>
         </form>
 
         <div>
             <h4>Search Results</h4>
-            <table class="users-table">
+            <div class="table-responsive text-center font-weight-bold">
+            <table class="table users-table table-dark table-striped table-hover">
                 <thead>
                 <tr>
                     <th>Username</th>
                     <th>Name</th>
-                    <th>is registered</th>
-                    <th>unregister</th>
+                    <th>Is registered?</th>
+                    <th>Unregister</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr th:each="user : ${searchResult}">
                         <td th:text="${user.email}"></td>
                         <td th:text="${user.name}"></td>
-                        <td th:text="${user.isRegistered}"></td>
+                        <td class="text-uppercase" th:text="${user.isRegistered}"></td>
                         <td>
                             <form th:if="${user.isRegistered}" th:action="@{/admin/unregister}" method="post">
                                 <input type="hidden" th:value="${user.userId}" name="unregisterUserId">
-                                <input type="submit" value="unregister" />
+                                <input class="btn btn-danger" type="submit" value="Unregister" />
                             </form>
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
         </div>
     </div>
 
