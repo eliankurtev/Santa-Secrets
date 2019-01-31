@@ -29,7 +29,12 @@ body {
     background-size: contain;
     background-position: center;
 }
+.categoriesTable{
+    font-size: 20px;
+    font-weight: bolder;
+    color: #FFFFFF;
 
+}
 .backBtn {
   position: absolute;
   bottom: 8px;

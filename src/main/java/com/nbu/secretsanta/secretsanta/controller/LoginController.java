@@ -3,6 +3,8 @@ package com.nbu.secretsanta.secretsanta.controller;
 import com.nbu.secretsanta.secretsanta.DTO.AdminDto;
 import com.nbu.secretsanta.secretsanta.model.User;
 import com.nbu.secretsanta.secretsanta.service.interfaces.AdminService;
+import com.nbu.secretsanta.secretsanta.service.interfaces.HobbyService;
+import com.nbu.secretsanta.secretsanta.service.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -22,6 +24,10 @@ public class LoginController {
 
     @Autowired
     private AdminService adminService;
+    @Autowired
+    private HobbyService hobbyService;
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/login")
     public String login() {
@@ -55,6 +61,9 @@ public class LoginController {
         User user = (User) sc.getAuthentication().getPrincipal();
 
         System.out.println("Logged User: " + sc.getAuthentication().getPrincipal());
+
+        model.addAttribute("topFive" , hobbyService.topFive());
+        model.addAttribute("statistic", userService.countAllUsers());
         return "ScreenUserR";
     }
 
