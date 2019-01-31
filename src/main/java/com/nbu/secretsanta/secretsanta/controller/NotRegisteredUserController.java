@@ -1,9 +1,12 @@
 package com.nbu.secretsanta.secretsanta.controller;
 
+import com.nbu.secretsanta.secretsanta.DTO.HobbyDto;
 import com.nbu.secretsanta.secretsanta.config.ListWrapper;
 import com.nbu.secretsanta.secretsanta.model.Hobby;
 import com.nbu.secretsanta.secretsanta.model.User;
+import com.nbu.secretsanta.secretsanta.service.interfaces.HobbyService;
 import com.nbu.secretsanta.secretsanta.service.interfaces.UserService;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -11,15 +14,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 @Controller("/reg")
 public class NotRegisteredUserController {
 
     @Autowired
-    private UserService userService;
+    private HobbyService hobbyService;
 
     @GetMapping("/register")
     public String register(Model model) {
@@ -35,15 +38,12 @@ public class NotRegisteredUserController {
         model.addAttribute("username", user.getName());
         model.addAttribute("email", user.getEmail());
         model.addAttribute("gender", gender);
-        LinkedList<Hobby> uiSelectedHobbies = new LinkedList<>();
-        ListWrapper lir = new ListWrapper();
-        lir.setTheList(uiSelectedHobbies);
-        LinkedList<Hobby> selectedHobbies = new LinkedList<>(userService.getHobbies(user));
-        model.addAttribute("selectableHobbies",selectedHobbies );
-        model.addAttribute("storage", lir);
+
+        List<HobbyDto> allHobbies = hobbyService.getHobbyDtos();
+        model.addAttribute("selectableHobbies", allHobbies );
+
         return "ScreenRegistration";
     }
-
 
 
 

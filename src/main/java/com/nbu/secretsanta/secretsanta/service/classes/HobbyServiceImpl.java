@@ -1,15 +1,14 @@
 package com.nbu.secretsanta.secretsanta.service.classes;
 
+import com.nbu.secretsanta.secretsanta.DTO.HobbyDto;
 import com.nbu.secretsanta.secretsanta.model.Hobby;
 import com.nbu.secretsanta.secretsanta.repository.HobbyRepository;
 import com.nbu.secretsanta.secretsanta.service.interfaces.HobbyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 @Service
 public class HobbyServiceImpl implements HobbyService {
     private final HobbyRepository hobbyRepository;
@@ -43,5 +42,22 @@ public class HobbyServiceImpl implements HobbyService {
            hobbyMap.remove(maxEntry.getKey());
         }
         return topFive;
+    }
+
+    @Override
+    public List<HobbyDto> getHobbyDtos() {
+        List<HobbyDto> hobbyDtos = new ArrayList<>();
+        List<Hobby> allHobbies = new ArrayList<>(getAll());
+        for (Hobby allHobby : allHobbies) {
+            HobbyDto hobbyDto = new HobbyDto();
+            hobbyDto.setName(allHobby.getName());
+            hobbyDtos.add(hobbyDto);
+        }
+        return hobbyDtos;
+    }
+
+    @Override
+    public Optional<Hobby> getByName(String name){
+         return hobbyRepository.findByName(name);
     }
 }
