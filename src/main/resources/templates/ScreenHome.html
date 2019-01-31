@@ -49,6 +49,11 @@
                     You have been logged out.
                 </div>
             </div>
+            <div th:if="${param.registered}">
+                <div class="alert alert-success">
+                    Successful registration! Please login again!
+                </div>
+            </div>
             <h2>Login</h2>
             <div class="formInput">
                 <div class="labels pl-5 pt-2">

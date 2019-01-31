@@ -64,36 +64,36 @@
         </div>
     </div>
     <!-- FORM FOR SUBMITTING THE CATEGORIES -->
-<div class="col-sm-12 col-md-7 mb-1">
-    <h2>Choose your categories</h2>
-        <form class="ui form" th:action="@{/register}" method="get" th:object="${selectableHobbies}">
+    <div class="col-sm-12 col-md-7 mb-1">
+        <h2>Choose your categories</h2>
+        <form class="ui form" th:action="@{/register/submit}" method="post" th:object="${wrapper}">
             <ul>
-                <li th:each="hobb : ${selectableHobbies}" class="mb-2">
+                <li th:each="hobb, stat : ${selectableHobbies}" class="mb-2">
                     <div class="pretty p-default p-curve p-fill">
-                        <input type="checkbox" th:value="${hobb.isChecked}"/>
-<div class="state p-success">
-    <label th:text="${hobb.name}"></label>
-    </div>
+                        <input type="checkbox"
+                               th:value="${hobb.name}"
+                               th:name="|list[${stat.index}].name|"
+                        />
+                        <div class="state p-success">
+                            <label th:text="${hobb.name}"></label>
+                        </div>
                     </div>
                 </li>
             </ul>
-            <a th:href="@{/register/submit}" th:method="POST" id="singInBtn" >Sign In</a>
+            <input type="submit" id="singInBtn" value="Sign In"/>
         </form>
     </div>
-</div>
 
-<div class="row">
     <div class="col-sm-12 mt-1">
         <!--LOGOUT button -->
-    <a th:href="@{/logout}" class="btn btn-primary-outline">
-        <img class="img-fluid" id="logOut" src="../images/nrUserPage/logOut.png" alt="back btn">
-    </a>
+        <a th:href="@{/logout}" class="btn btn-primary-outline">
+            <img class="img-fluid" id="logOut" src="../images/nrUserPage/logOut.png" alt="back btn">
+        </a>
 
     </div>
 </div>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
 <script
         src="https://code.jquery.com/jquery-3.3.1.js"
         integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
