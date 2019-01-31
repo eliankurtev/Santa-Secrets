@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 
@@ -12,9 +11,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Righteous&amp;subset=latin-ext" rel="stylesheet">
 	<link rel="icon" href="../images/tab_icon.png">
 	<link rel="stylesheet" href="/css/RUser.css">
-
-
 </head>
+
 <body class="container-fluid">
 <div class="row">
 	<!--  -->
@@ -24,6 +22,8 @@
 			<img src="../images/nrUserPage/topOfNRUserPage.png" class="img-fluid animateTopSideImg" alt="top desk">
 		</figure>
 	</div>
+</div>
+<div class="row">
 	<div class="col-sm-12 text-center">
 		<!-- GO TO GIFTIE -->
 		<figure>
@@ -35,6 +35,7 @@
 			</a>
 		</figure>
 	</div>
+
 	<div class="col-sm-12 mt-2 mb-3 text-center">
 		<div class="row">
 			<h2 class="col-sm-12">Countdown to the christmas party</h2>
@@ -43,42 +44,54 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-12 col-md-6 table-responsive">
-		<div class="table_container table table-striped table-hover">
-			<table align="left">
-				<thead>
-				<tr>
-					<th>Top Categories</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr th:each="hobby : ${topFive}">
-					<td th:text="${hobby.name}"></td>
-				</tr>
-				</tbody>
-
-			</table>
+</div>
+<div class="row">
+	<!-- CATEGORIES TABLE -->
+	<div class="col-sm-12 col-md-6">
+		<div class="row justify-content-center">
+			<div class="col-sm-12 text-center">
+				<div class="table-responsive pl-md-5 pr-md-5">
+					<table class="categoriesTable table table-striped table-hover">
+						<thead>
+						<tr>
+							<th>Statistics</th>
+							<th>#</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr th:each=" mapEntry : ${statistic}">
+							<td th:text="${mapEntry.key}"></td>
+							<td th:text="${mapEntry.value}"></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="col-sm-12 col-md-6 table-responsive">
-		<div class="table_container table table-striped table-hover">
-				<thead>
-				<tr>
-					<th>Statistics</th>
-					<th>#</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr th:each=" mapEntry : ${statistic}">
-					<td th:text="${mapEntry.key}"></td>
-					<td th:text="${mapEntry.value}"></td>
-				</tr>
-				</tbody>
-			</table>
+	<div class="col-sm-12 col-md-6">
+		<div class="row justify-content-center">
+			<div class="col-sm-12 text-center">
+				<div class="table-responsive pl-md-5 pr-md-5">
+					<table class="categoriesTable table table-striped table-hover  mt-sm-3 mt-md-0">
+						<thead>
+						<tr>
+							<th>Top Categories</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr th:each="hobby : ${topFive}">
+							<td th:text="${hobby.name}"></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
 
+</body>
 <!-- BACK button -->
 <div class="fixed-bottom">
 	<a th:href="@{/logout}">
