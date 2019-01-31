@@ -1,9 +1,9 @@
 body {
-     background: url("../images/rUserPage/background.jpg") no-repeat center center fixed;
-  	-webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
+    background: url("../images/rUserPage/background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #back, #front {
@@ -14,19 +14,24 @@ body {
     left:0;
 }
 .btn-primary-outline {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 .backBtn {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-  font-size: 18px;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 18px;
+}
+
+#backBtnImg {
+    max-height: 150px;
+    max-width: 150px;
 }
 
 #giftieButton {
-  max-height: 400px;
-  max-width: 400px;
+    max-height: 400px;
+    max-width: 400px;
 }
 
 #list {
@@ -40,4 +45,13 @@ body {
 #backBtnImg {
     max-height: 200px;
     max-width: 200px;
+}
+table, th, td {
+    border: 1px solid white;
+    color: white;
+}
+
+#table_container {
+    width:300px;
+    margin:0 auto;
 }

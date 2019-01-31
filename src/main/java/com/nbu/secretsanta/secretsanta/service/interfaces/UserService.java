@@ -12,6 +12,7 @@ public interface UserService {
     boolean validate(User user);
     void save(User user);
     User getUserByEmail(@Email String i);
+    User getUserById(long userId);
     List<User> getAllUsers();
     List<Integer> countAllUsers();
     List<User> getAllByNameContaining(String substring);

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.7"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
+    <changeSet id="20181202-1-insert-people" author="Rumyana Krumova">
+        <insert tableName="gift">
+            <column name="name" value="fork"/>
+            <column name="hobby_id" value="6"/>
+            <column name="price" value="10"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

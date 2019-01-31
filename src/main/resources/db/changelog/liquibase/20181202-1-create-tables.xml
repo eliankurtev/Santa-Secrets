@@ -83,7 +83,7 @@
     </changeSet>
     <changeSet id="20181202-7-role" author="Rumyana Krumova">
         <createTable tableName="role">
-            <column name="id" type="bigint">
+            <column name="id" type="bigint" autoIncrement="true">
             <constraints primaryKey="true"/>
             </column>
             <column name="name" type="varchar(255)"/>

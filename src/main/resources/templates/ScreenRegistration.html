@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:h="http://www.w3.org/1999/html" lang="en">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 
 <head>
     <!-- REQUIRED META TAGS -->
@@ -33,29 +33,62 @@
 </div>
 <!-- SECOND ROW -->
 <div class="row">
-
+<!-- INFO ABOUT THE USER -->
     <div class="col-sm-12 col-md-5" id="infoSection">
+<h2 class="pl-5">Info about you</h2>
+        <div class="formInput">
+            <div class="labels pl-5 pt-2">
+                <label for="username">Username</label>
+            </div>
+            <div class="usernameField media">
+                <!-- @Rumy -->
+                <p th:text="${username}" id="username" class="align-self-center"></p>
+            </div>
+        </div>
 
+        <div class="formInput">
+            <div class="labels pl-5 pt-2">
+                <label for="email">Email</label>
+            </div>
+            <div class="emailField media">
+                <!-- @Rumy -->
+                <p th:text="${email}" id="email" class="align-self-center"></p>
+            </div>
+        </div>
 
-
-
+        <div class="formInput">
+            <div class="labels pl-5 pt-2">
+                <label for="gender">Gender</label>
+            </div>
+            <div class="genderField media">
+                <!-- @Rumy -->
+                <p th:text="${gender}" id="gender" class="align-self-center"></p>
+            </div>
+        </div>
     </div>
+<!-- FORM FOR SUBMITTING THE CATEGORIES -->
+    <div>
 
-    <div class="col-sm-12 col-md-7" id="checkBoxesSection">
         <form action="" method="POST">
-
-
-
-
-
+            <div>
+                <ul>
+                    <li th:each="item : ${selectableUsers}">
+                        <input type="checkbox" th:field="*{users}" th:value="${item}" />
+                        <label th:for="${#ids.prev('users')}" th:text="${item}"></label>
+                    </li>
+                </ul>
             <button type="submit" id="submitCategoriesBtn">
                 Registration
             </button>
         </form>
-
     </div>
 
-    <!-- CLOSING SECOND ROW -->
+    <div class="col-sm-12 col-md-7" id="checkBoxesSection" >
+    </div>
+
+
+
+
 </div>
 
 

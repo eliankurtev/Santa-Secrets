@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
 
     <meta charset="UTF-8">
@@ -23,9 +24,9 @@
             <img src="../images/nrUserPage/topOfNRUserPage.png" class="img-fluid" alt="top desk">
         </figure>
     </div>
-    <div class="col-sm-12 col-md-12 col-lg-9 d-flex justify-content-center">
+    <div class="col-sm-12 col-md-12 col-lg-9 d-flex justify-content-center" >
         <figure>
-            <a th:href="@{/register}">
+            <a th:href="@{/register}" id="btnRegister">
                 <img src="../images/nrUserPage/registerBtn.png" class="img-fluid" alt="register button">
             </a>
         </figure>

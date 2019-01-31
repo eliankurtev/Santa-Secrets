@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 @Service
 public class AdminServiceImpl implements AdminService {
-    private final AdminRepository adminRepository;
+    private  final AdminRepository adminRepository;
 
     @Autowired
     public AdminServiceImpl(AdminRepository adminRepository) {
@@ -28,21 +28,21 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public String showRegEndDate() {
-        Admin admin = adminRepository.findAll().get(0);
+        Admin admin = getAdmin();
         LocalDateTime date = admin.getRegistrationEndDate();
         return date.toString();
     }
 
     @Override
     public String showGiftGivingDate() {
-        Admin admin = adminRepository.findAll().get(0);
+        Admin admin = getAdmin();
         LocalDateTime date = admin.getGiftsDate();
         return date.toString();
     }
 
     @Override
     public String showAdminGiftPrice() {
-        Admin admin = adminRepository.findAll().get(0);
+        Admin admin = getAdmin();
         return admin.getAdminPrice();
     }
 
@@ -53,21 +53,21 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public void setAdminGiftPrice(String price) {
-        Admin admin = adminRepository.findAll().get(0);
+        Admin admin = getAdmin();
         admin.setAdminPrice(price);
         adminRepository.save(admin);
     }
 
     @Override
     public void setRegEndDate(String endDate){
-        Admin admin = adminRepository.findAll().get(0);
+        Admin admin = getAdmin();
         admin.setRegistrationEndDate(gifteeService.parseDate(endDate));
         adminRepository.save(admin);
     }
 
     @Override
     public void setGiftGivingDate(String giftDate) throws Exception {
-        Admin admin = adminRepository.findAll().get(0);
+        Admin admin = getAdmin();
         admin.setGiftsDate(gifteeService.parseDate(giftDate));
         adminRepository.save(admin);
     }
