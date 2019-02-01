@@ -28,10 +28,10 @@ $(document).ready(function() {
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            $("#giftieButton").removeAttr('href');
             document.getElementById("demo2").innerHTML = "PARTYYYYY!!!";
-
-
+        }else{
+            //$("#giftieButton").removeAttr('href');
+            //$("#gifteeImg").attr("src", "../images/rUserPage/goToGifteeExpired.png");
         }
 
     }, 1000);
